@@ -1,0 +1,32 @@
+.disc {
+    display: flex;
+    flex-direction: column;
+}
+
+.results {
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 5px;
+}
+
+.disc-calc {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px;
+}
+
+.acc {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px;
+    background-color: lightgreen;
+}
+
+.not-acc {
+    
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px;
+    background-color: red;
+    
+}

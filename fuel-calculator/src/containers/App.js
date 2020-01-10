@@ -1,5 +1,13 @@
+/** 
+ * Todo Make Discrepancy calculate whether acceptable or not
+ * Todo Sort out styling - break inputs into smaller divs for styles
+ * ? Is it worth changing specific gravity to a slider as opposed to input?
+ * ? It is worth refactoring the form into it's own component?
+*/
+
 import React, { useState } from 'react';
 import './App.css';
+import Discrepancy from '../components/Discrepancy';
 
 function App() {
 
@@ -12,24 +20,29 @@ function App() {
     <div className="App">
       <h1>Enginnering Fuel Calculator</h1>
       <form>
-        Aircraft Remaining Fuel (Kg) <input
+        Aircraft Remaining Fuel<br /> <input
           type='text'
           value={remainingFuel}
           onChange={e => setRemainingFuel(e.target.value)}
-        /> <br />
-        Specific Gravity <input 
+        />Kg<br />
+        Specific Gravity<br /> <input   
           type='text'
           value={specificGravity}
           onChange={e => setSpecificGravity(e.target.value)} /><br />
-        Aircraft Final Fuel State (Kg) <input 
+        Aircraft Final Fuel State<br /><input 
           type='text'
           value={finalFuelState}
-          onChange={setFinalFuelState} /><br />
-        Delivered Fuel (Lts) <input 
+          onChange={e => setFinalFuelState(e.target.value)} />Kg<br />
+        Delivered Fuel<br /><input 
           type='text'
-          value={} /><br />
-        <span id='disc-box'>Discrepancy <input type='text' placeholder='0%' /><br /></span>
+          value={deliveredFuel}
+          onChange={e => setDeliveredFuel(e.target.value)} />Lts<br />
       </form>
+      <Discrepancy 
+        remainingFuel={remainingFuel} 
+        specificGravity={specificGravity}
+        finalFuelState={finalFuelState}
+        deliveredFuel={deliveredFuel} />
     </div>
   );
 }
