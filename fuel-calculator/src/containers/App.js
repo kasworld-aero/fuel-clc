@@ -1,6 +1,5 @@
 /** 
- * Todo Make Discrepancy calculate whether acceptable or not
- * Todo Sort out styling - break inputs into smaller divs for styles
+ * Todo Sort out styling - use css grid as opposed to current layout to make a more responsive UI
  * ? Is it worth changing specific gravity to a slider as opposed to input?
  * ? It is worth refactoring the form into it's own component?
 */
@@ -18,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Enginnering Fuel Calculator</h1>
+      <h1>Engineering Fuel Calculator</h1>
       <form>
         Aircraft Remaining Fuel<br /> <input
           type='text'
