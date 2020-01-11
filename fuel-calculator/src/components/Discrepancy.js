@@ -1,5 +1,4 @@
 /**
- * todo confirm the calculation for percentage diff is working
  * todo Get diffBetweenFuels to work
  * todo need to assure that diffBetweenFuels doesn't return a negative number ever. 
  */
@@ -16,10 +15,11 @@ const discrepancy = (props) => {
     const diffBetweenFuels = aircraftRecievedFuel - delivFuel;
     
     const calculateDiff = () => {
-        const sumFuelDiff = aircraftRecievedFuel + delivFuel;
-        let a = sumFuelDiff;
-        let b = delivFuel;
-        const calc = 100 * ((a - b) / ((a + b) / 2));
+        let a = aircraftRecievedFuel;
+        let b = delivKg;
+        let c = a - b
+        let d = a + b
+        const calc = 100 * (c / (d / 2));
         //percentage difference = 100 * |a - b| / ((a + b) / 2)
         if (calc >= 4) {
             return (
