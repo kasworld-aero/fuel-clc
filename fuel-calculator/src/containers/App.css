@@ -1,6 +1,15 @@
+/** 
+ * todo Brake screen down into fractions in columns to add more reactive UI 
+*/
+
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
+.input-box {
+  border: 1px solid grey;
+  padding: 5px;
+  margin: 5px 5px 20px 5px;
+}

@@ -19,23 +19,35 @@ function App() {
     <div className="App">
       <h1>Engineering Fuel Calculator</h1>
       <form>
-        Aircraft Remaining Fuel<br /> <input
-          type='text'
-          value={remainingFuel}
-          onChange={e => setRemainingFuel(e.target.value)}
-        />Kg<br />
-        Specific Gravity<br /> <input   
-          type='text'
-          value={specificGravity}
-          onChange={e => setSpecificGravity(e.target.value)} /><br />
-        Aircraft Final Fuel State<br /><input 
-          type='text'
-          value={finalFuelState}
-          onChange={e => setFinalFuelState(e.target.value)} />Kg<br />
-        Delivered Fuel<br /><input 
-          type='text'
-          value={deliveredFuel}
-          onChange={e => setDeliveredFuel(e.target.value)} />Lts<br />
+        <div className='input-box'>
+          <label>Aircraft Remaining Fuel<br /></label> 
+          <input
+            type='text'
+            value={remainingFuel}
+            onChange={e => setRemainingFuel(e.target.value)}
+          />Kg
+        </div>
+        <div className='input-box'>
+          <label>Specific Gravity<br /></label>
+          <input   
+            type='text'
+            value={specificGravity}
+            onChange={e => setSpecificGravity(e.target.value)} />
+        </div>
+        <div className='input-box'>
+          <label>Aircraft Final Fuel State<br /></label>
+          <input 
+            type='text'
+            value={finalFuelState}
+            onChange={e => setFinalFuelState(e.target.value)} />Kg
+        </div>
+        <div className='input-box'>
+          <label>Delivered Fuel<br /></label>
+          <input 
+            type='text'
+            value={deliveredFuel}
+            onChange={e => setDeliveredFuel(e.target.value)} />Lts
+        </div>
       </form>
       <Discrepancy 
         remainingFuel={remainingFuel} 

@@ -1,0 +1,8 @@
+First you need to find the average of fuel put in between the bowser in kg
+and the aircraft in kg. 
+So 
+    bowser in Kg + difference in AC start and finish / 2 = average of fuel put in. 
+    Divide that by 100 gives you 1% of fuel put in.
+
+After that you need to work out the difference between the bowser in kg and AC put in. 
+Divide that by 1% and that will give you the discrepancy.

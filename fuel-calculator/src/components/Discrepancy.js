@@ -1,5 +1,5 @@
 /**
- * todo need to cofirm with Chris what calcualation they use then apply
+ * todo sort out styling, include media queries.
  */
 import React from 'react';
 import './Discrepancy.css'
