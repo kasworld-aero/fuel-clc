@@ -1,4 +1,5 @@
 import React from 'react';
+import './InputForm.css';
 
 const inputForm = (props) => {
     return (
