@@ -13,10 +13,10 @@ const discrepancy = (props) => {
     const delivKg = delivFuel * specgravity;
     
     const diffBetweenFuels = () => {
-        if (aircraftRecievedFuel >= delivFuel) {
-            return aircraftRecievedFuel - delivFuel;
-        } else if (delivFuel > aircraftRecievedFuel) {
-            return delivFuel - aircraftRecievedFuel;
+        if (aircraftRecievedFuel >= delivKg) {
+            return aircraftRecievedFuel - delivKg;
+        } else if (delivKg > aircraftRecievedFuel) {
+            return delivKg - aircraftRecievedFuel;
         } else {
             return null
         }
