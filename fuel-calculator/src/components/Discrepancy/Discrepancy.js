@@ -8,6 +8,10 @@ const discrepancy = (props) => {
     const delivFuel = props.deliveredFuel;
     const aircraftRecievedFuel = finFuel - remFuel;
     const delivKg = delivFuel * specgravity;    
+
+    const onClickHandler = () => {
+        return props.setSubmitted(false);
+    }
     
     const roundedNum = (num) => {
             return num.toFixed(2);
@@ -41,30 +45,40 @@ const discrepancy = (props) => {
         } else if (calc >= 4 || calc <= -4) {
             return (
                 <div className='not-acc'>
-                    Discrepancy is {roundedNum(calc)}%
+                    Discrepancy is <strong>{roundedNum(calc)}%</strong>
                 </div>
             ) 
         } else if (calc < 4) {
             return (
                <div className='acc'>
-                    Discrepancy is {roundedNum(calc)}%
+                    Discrepancy is <strong>{roundedNum(calc)}%</strong>
                 </div> 
             )
-        } 
+        } else {
+            return (
+            <div className='disc-calc'>
+                Error Calculating Discrepancy
+            </div>
+            )
+        }
     };
 
     return (
         <div className='disc'>
             <span className='results'>
-                Fuel Put In {roundedNum(delivKg)}Kg <br /> 
+                A/C Tail Number <strong>{props.tailNumber}</strong> <br />
             </span>
             <span className='results'>
-                Aircraft Recieved Fuel {roundedNum(aircraftRecievedFuel)}Kg <br />
+                Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br /> 
             </span>
             <span className='results'>
-                Difference Between Fuel Put In and Recieved {diffBetweenFuels()}Kg <br />
+                Aircraft Recieved Fuel <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
+            </span>
+            <span className='results'>
+                Difference Between Fuel Put In and Recieved <strong>{diffBetweenFuels()}Kg</strong> <br />
             </span>
                 {calculateDiff()}
+            <button onClick={onClickHandler} >Back</button>
         </div>
     )
 };

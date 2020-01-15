@@ -2,9 +2,23 @@ import React from 'react';
 import './InputForm.css';
 
 const inputForm = (props) => {
+
+    const onClickHandler = () => {
+        return props.setSubmitted(true);
+    } 
+
     return (
         <div>
             <form>
+                <div className='input-box'>
+                    <label htmlFor='tail-number'>A/C Tail Number<br /></label>
+                    <input
+                        name='tail-number'
+                        type='text'
+                        value={props.tailNumber}
+                        onChange={e => props.setTailNumber(e.target.value)}
+                    />
+                </div>
                 <div className='input-box'>
                     <label htmlFor='remaining-fuel'>Fuel Remaining (A/C Gauges)<br /></label>
                     <input
@@ -26,12 +40,7 @@ const inputForm = (props) => {
                         className='slider'
                         step='0.01'
                         id='myRange' /> 
-                    <label id='spec-gravity-output'>{props.specificGravity}</label>
-                    {/* //? Refactor for slider, confirm with client prefers slider to text 
-                <input   
-                    type='text'
-                    value={specificGravity}
-                    onChange={e => setSpecificGravity(e.target.value)} /> */}
+                    <label id='spec-gravity-output'>{props.specificGravity}</label>               
                 </div>
                 <div className='input-box'>
                     <label htmlFor='final-fuelstate'>Total A/C<br /></label>
@@ -50,6 +59,7 @@ const inputForm = (props) => {
                         onChange={e => props.setDeliveredFuel(e.target.value)} />Lts
                 </div>
             </form>
+            <button onClick={onClickHandler}>Submit</button>
         </div>
     )    
 };

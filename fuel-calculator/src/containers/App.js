@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
-import Discrepancy from '../components/Discrepancy/Discrepancy';
-import InputForm from '../components/InputForm/InputForm';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 function App() {
 
+  const [tailNumber, setTailNumber] = useState('');
   const [remainingFuel, setRemainingFuel] = useState('');
   const [specificGravity, setSpecificGravity] = useState('0.88');
   const [finalFuelState, setFinalFuelState] = useState('');
   const [deliveredFuel, setDeliveredFuel] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSliderChange = (event) => {
     setSpecificGravity(event.target.value);
@@ -17,7 +18,11 @@ function App() {
   return (
     <div className="App">
       <h1>Engineering Fuel Calculator</h1>
-      <InputForm 
+      <Cockpit 
+        submitted={submitted}
+        setSubmitted={setSubmitted}
+        tailNumber={tailNumber}
+        setTailNumber={setTailNumber}
         remainingFuel={remainingFuel}
         setRemainingFuel={setRemainingFuel}
         specificGravity={specificGravity}
@@ -25,12 +30,7 @@ function App() {
         finalFuelState={finalFuelState}
         setFinalFuelState={setFinalFuelState}
         deliveredFuel={deliveredFuel}
-        setDeliveredFuel={setDeliveredFuel} /> 
-      <Discrepancy 
-        remainingFuel={remainingFuel} 
-        specificGravity={specificGravity}
-        finalFuelState={finalFuelState}
-        deliveredFuel={deliveredFuel} />
+        setDeliveredFuel={setDeliveredFuel} />
     </div>
   );
 }
