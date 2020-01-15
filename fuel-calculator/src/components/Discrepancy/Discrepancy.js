@@ -1,6 +1,3 @@
-/**
- * todo sort out styling, include media queries.
- */
 import React from 'react';
 import './Discrepancy.css'
 
@@ -22,6 +19,15 @@ const discrepancy = (props) => {
         }
     } 
     
+    const roundedNum = (num) => {
+        return num.toFixed(2);
+    }
+
+    const preventOverRound = (num) => {
+        const roundedNumAns = roundedNum(num);
+        if (num)
+    }
+
     const calculateDiff = () => {
         let a = aircraftRecievedFuel;
         let b = delivKg;
@@ -29,16 +35,17 @@ const discrepancy = (props) => {
         let d = a + b
         const calc = 100 * (c / (d / 2));
         //percentage difference = 100 * |a - b| / ((a + b) / 2)
+
         if (calc >= 4 || calc <= -4) {
             return (
                 <div className='not-acc'>
-                    Discrepancy is {calc}%
+                    Discrepancy is {roundedNum(calc)}%
                 </div>
             ) 
         } else if (calc < 4) {
             return (
                <div className='acc'>
-                    Discrepancy is {calc}%
+                    Discrepancy is {roundedNum(calc)}%
                 </div> 
             )
         } else if (remFuel === '' || specgravity === '' || finFuel === '' || delivFuel === '') {
@@ -59,7 +66,7 @@ const discrepancy = (props) => {
                 Aircraft Recieved Fuel {aircraftRecievedFuel}Kg <br />
             </span>
             <span className='results'>
-                Difference Between Delivered and Recieved {diffBetweenFuels()}Kg <br />
+                Difference Between Delivered and Recieved {roundedNum(diffBetweenFuels())}Kg <br />
             </span>
                 {calculateDiff()}
         </div>

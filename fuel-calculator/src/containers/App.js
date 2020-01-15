@@ -1,10 +1,3 @@
-/** 
- * Todo Stop dicrepancy showing answer until all inputs filled out 
- * Todo Styling - use css grid as opposed to current layout to make a more responsive UI
- * todo media queries.
- * Todo add a reset button
-*/
-
 import React, { useState } from 'react';
 import './App.css';
 import Discrepancy from '../components/Discrepancy/Discrepancy';

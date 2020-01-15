@@ -20,12 +20,13 @@ const inputForm = (props) => {
                         name='specific-gravity'
                         type='range'
                         min='0.7'
-                        max='0.888'
+                        max='0.88'
                         defaultValue={props.specificGravity}
                         onChange={props.handleSliderChange}
                         className='slider'
-                        step='0.001'
-                        id='myRange' /> {props.specificGravity}
+                        step='0.01'
+                        id='myRange' /> 
+                    <label id='spec-gravity-output'>{props.specificGravity}</label>
                     {/* //? Refactor for slider, confirm with client prefers slider to text 
                 <input   
                     type='text'
