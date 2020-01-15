@@ -6,7 +6,7 @@ const inputForm = (props) => {
         <div>
             <form>
                 <div className='input-box'>
-                    <label htmlFor='remaining-fuel'>Aircraft Remaining Fuel<br /></label>
+                    <label htmlFor='remaining-fuel'>Fuel Remaining (A/C Gauges)<br /></label>
                     <input
                         name='remaining-fuel'
                         type='text'
@@ -34,7 +34,7 @@ const inputForm = (props) => {
                     onChange={e => setSpecificGravity(e.target.value)} /> */}
                 </div>
                 <div className='input-box'>
-                    <label htmlFor='final-fuelstate'>Aircraft Final Fuel State<br /></label>
+                    <label htmlFor='final-fuelstate'>Total A/C<br /></label>
                     <input
                         name='final-fuelstate'
                         type='text'
@@ -42,7 +42,7 @@ const inputForm = (props) => {
                         onChange={e => props.setFinalFuelState(e.target.value)} />Kg
                 </div>
                 <div className='input-box'>
-                    <label htmlFor='delivered-fuel'>Delivered Fuel<br /></label>
+                    <label htmlFor='delivered-fuel'>Fuel Put In (Source Gauges)<br /></label>
                     <input
                         name='delivered-fuel'
                         type='text'

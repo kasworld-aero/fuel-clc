@@ -6,7 +6,7 @@ import InputForm from '../components/InputForm/InputForm';
 function App() {
 
   const [remainingFuel, setRemainingFuel] = useState('');
-  const [specificGravity, setSpecificGravity] = useState('0.888');
+  const [specificGravity, setSpecificGravity] = useState('0.88');
   const [finalFuelState, setFinalFuelState] = useState('');
   const [deliveredFuel, setDeliveredFuel] = useState('');
 

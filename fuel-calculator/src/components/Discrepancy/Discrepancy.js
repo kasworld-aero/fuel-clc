@@ -7,27 +7,24 @@ const discrepancy = (props) => {
     const finFuel = props.finalFuelState;
     const delivFuel = props.deliveredFuel;
     const aircraftRecievedFuel = finFuel - remFuel;
-    const delivKg = delivFuel * specgravity;
+    const delivKg = delivFuel * specgravity;    
     
+    const roundedNum = (num) => {
+            return num.toFixed(2);
+    }
+
     const diffBetweenFuels = () => {
         if (aircraftRecievedFuel >= delivKg) {
-            return aircraftRecievedFuel - delivKg;
+            let ans = aircraftRecievedFuel - delivKg;
+            return roundedNum(ans);
         } else if (delivKg > aircraftRecievedFuel) {
-            return delivKg - aircraftRecievedFuel;
+            let ans = delivKg - aircraftRecievedFuel;
+            return roundedNum(ans);
         } else {
             return null
         }
     } 
     
-    const roundedNum = (num) => {
-        return num.toFixed(2);
-    }
-
-    const preventOverRound = (num) => {
-        const roundedNumAns = roundedNum(num);
-        if (num)
-    }
-
     const calculateDiff = () => {
         let a = aircraftRecievedFuel;
         let b = delivKg;
@@ -35,8 +32,13 @@ const discrepancy = (props) => {
         let d = a + b
         const calc = 100 * (c / (d / 2));
         //percentage difference = 100 * |a - b| / ((a + b) / 2)
-
-        if (calc >= 4 || calc <= -4) {
+        if (remFuel === '' || finFuel === '' || delivFuel === '') {
+            return (
+                <div className='disc-calc'>
+                    Discrepancy is calculating...
+                </div>
+            )
+        } else if (calc >= 4 || calc <= -4) {
             return (
                 <div className='not-acc'>
                     Discrepancy is {roundedNum(calc)}%
@@ -48,25 +50,19 @@ const discrepancy = (props) => {
                     Discrepancy is {roundedNum(calc)}%
                 </div> 
             )
-        } else if (remFuel === '' || specgravity === '' || finFuel === '' || delivFuel === '') {
-            return (
-                <div className='disc-calc'>
-                    Discrepancy is calculating...
-                </div>
-            )
-        }
+        } 
     };
 
     return (
         <div className='disc'>
             <span className='results'>
-                Delivered Fuel {delivKg}Kg <br /> 
+                Fuel Put In {roundedNum(delivKg)}Kg <br /> 
             </span>
             <span className='results'>
-                Aircraft Recieved Fuel {aircraftRecievedFuel}Kg <br />
+                Aircraft Recieved Fuel {roundedNum(aircraftRecievedFuel)}Kg <br />
             </span>
             <span className='results'>
-                Difference Between Delivered and Recieved {roundedNum(diffBetweenFuels())}Kg <br />
+                Difference Between Fuel Put In and Recieved {diffBetweenFuels()}Kg <br />
             </span>
                 {calculateDiff()}
         </div>
