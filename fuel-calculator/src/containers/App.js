@@ -10,10 +10,32 @@ function App() {
   const [finalFuelState, setFinalFuelState] = useState('');
   const [deliveredFuel, setDeliveredFuel] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [storedAircraft, setStoredAircraft] = useState([]);
+  const [showStoredAircraft, setShowStoredAircraft] = useState(false);
+
+  const setShowStoredAircraftHandler = () => {
+    if (showStoredAircraft) {
+      setShowStoredAircraft(false);
+    } else if (showStoredAircraft === false) {
+      setShowStoredAircraft(true);
+    }
+  };
 
   const handleSliderChange = (event) => {
     setSpecificGravity(event.target.value);
-  }
+  };
+
+  //! Not storing array data in setStoredAircraft. Will need to re-add discrepancy once made global state. 
+  const saveDetailsHandler = () => {
+    setStoredAircraft(storedAircraft => [...storedAircraft, [tailNumber, remainingFuel, specificGravity, deliveredFuel, finalFuelState]]);
+    setTailNumber('');
+    setRemainingFuel('');
+    setSpecificGravity('0.88');
+    setFinalFuelState('');
+    setDeliveredFuel('');
+    setSubmitted(false);
+    return console.log(storedAircraft);
+  };
 
   return (
     <div className="App">
@@ -30,9 +52,14 @@ function App() {
         finalFuelState={finalFuelState}
         setFinalFuelState={setFinalFuelState}
         deliveredFuel={deliveredFuel}
-        setDeliveredFuel={setDeliveredFuel} />
+        setDeliveredFuel={setDeliveredFuel}
+        storedAircraft={storedAircraft}
+        setStoredAircraft={setStoredAircraft}
+        showStoredAircraft={showStoredAircraft}
+        setShowStoredAircraft={setShowStoredAircraftHandler}
+        saveDetailsHandler={saveDetailsHandler} />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,11 +1,18 @@
 import React from 'react';
 import InputForm from '../InputForm/InputForm';
 import Discrepancy from '../Discrepancy/Discrepancy';
+import StoredAircraft from '../StoredAircraft/StoredAircraft';
 
 const cockpit = (props) => {
-    
+
     const onSubmitHandler = () => {
-        if (props.submitted === false) {
+        if (props.showStoredAircraft) {
+            return (
+                <StoredAircraft 
+                    storedAircraft={props.storedAircraft}
+                    setShowStoredAircraft={props.setShowStoredAircraft} />
+            )
+        } else if (props.submitted === false) {
             return (
                 <InputForm
                     tailNumber={props.tailNumber}
@@ -19,7 +26,8 @@ const cockpit = (props) => {
                     deliveredFuel={props.deliveredFuel}
                     setDeliveredFuel={props.setDeliveredFuel}
                     submitted={props.submitted}
-                    setSubmitted={props.setSubmitted} />
+                    setSubmitted={props.setSubmitted}
+                    setShowStoredAircraft={props.setShowStoredAircraft} />
             )
         } else if (props.submitted) {
             return (
@@ -29,7 +37,9 @@ const cockpit = (props) => {
                     specificGravity={props.specificGravity}
                     finalFuelState={props.finalFuelState}
                     deliveredFuel={props.deliveredFuel}
-                    setSubmitted={props.setSubmitted} />
+                    setSubmitted={props.setSubmitted}
+                    setShowStoredAircraft={props.setShowStoredAircraft}
+                    saveDetailsHandler={props.saveDetailsHandler} />
             )
         }
     }

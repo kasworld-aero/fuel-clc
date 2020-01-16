@@ -9,9 +9,10 @@ const discrepancy = (props) => {
     const aircraftRecievedFuel = finFuel - remFuel;
     const delivKg = delivFuel * specgravity;    
 
+    //? REFACTOR, make a global function that toggles getSubmitted
     const onClickHandler = () => {
         return props.setSubmitted(false);
-    }
+    }    
     
     const roundedNum = (num) => {
             return num.toFixed(2);
@@ -35,7 +36,6 @@ const discrepancy = (props) => {
         let c = a - b
         let d = a + b
         const calc = 100 * (c / (d / 2));
-        //percentage difference = 100 * |a - b| / ((a + b) / 2)
         if (remFuel === '' || finFuel === '' || delivFuel === '') {
             return (
                 <div className='disc-calc'>
@@ -48,7 +48,7 @@ const discrepancy = (props) => {
                     Discrepancy is <strong>{roundedNum(calc)}%</strong>
                 </div>
             ) 
-        } else if (calc < 4) {
+        } else if (calc < 4 || calc > -4) {
             return (
                <div className='acc'>
                     Discrepancy is <strong>{roundedNum(calc)}%</strong>
@@ -64,20 +64,24 @@ const discrepancy = (props) => {
     };
 
     return (
-        <div className='disc'>
-            <span className='results'>
-                A/C Tail Number <strong>{props.tailNumber}</strong> <br />
-            </span>
-            <span className='results'>
-                Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br /> 
-            </span>
-            <span className='results'>
-                Aircraft Recieved Fuel <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
-            </span>
-            <span className='results'>
-                Difference Between Fuel Put In and Recieved <strong>{diffBetweenFuels()}Kg</strong> <br />
-            </span>
-                {calculateDiff()}
+        <div>
+            <div className='disc'>
+                <span className='results'>
+                    A/C Tail Number <strong>{props.tailNumber}</strong> <br />
+                </span>
+                <span className='results'>
+                    Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br /> 
+                </span>
+                <span className='results'>
+                    Aircraft Recieved Fuel <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
+                </span>
+                <span className='results'>
+                    Difference Between Fuel Put In and Recieved <strong>{diffBetweenFuels()}Kg</strong> <br />
+                </span>
+                    {calculateDiff()}
+            </div>
+            <button onClick={props.setShowStoredAircraft}>Stored Details</button>
+            <button onClick={props.saveDetailsHandler}>Save Details</button>
             <button onClick={onClickHandler} >Back</button>
         </div>
     )

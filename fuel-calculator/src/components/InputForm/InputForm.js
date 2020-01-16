@@ -59,6 +59,7 @@ const inputForm = (props) => {
                         onChange={e => props.setDeliveredFuel(e.target.value)} />Lts
                 </div>
             </form>
+            <button onClick={props.setShowStoredAircraft}>Stored Details</button>
             <button onClick={onClickHandler}>Submit</button>
         </div>
     )    
