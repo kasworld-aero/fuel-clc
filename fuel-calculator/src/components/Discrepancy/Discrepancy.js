@@ -36,6 +36,7 @@ const discrepancy = (props) => {
         let c = a - b
         let d = a + b
         const calc = 100 * (c / (d / 2));
+        props.setDiscrepancy(roundedNum(calc));
         if (remFuel === '' || finFuel === '' || delivFuel === '') {
             return (
                 <div className='disc-calc'>
@@ -45,13 +46,13 @@ const discrepancy = (props) => {
         } else if (calc >= 4 || calc <= -4) {
             return (
                 <div className='not-acc'>
-                    Discrepancy is <strong>{roundedNum(calc)}%</strong>
+                    Discrepancy is <strong>{props.discrepancy}%</strong>
                 </div>
             ) 
         } else if (calc < 4 || calc > -4) {
             return (
                <div className='acc'>
-                    Discrepancy is <strong>{roundedNum(calc)}%</strong>
+                    Discrepancy is <strong>{props.discrepancy}%</strong>
                 </div> 
             )
         } else {

@@ -4,7 +4,7 @@ const storedAircraft = (props) => {
     
     return (
         <div>
-            {props.showStoredAircraft}
+            {props.storedAircraft}
             <button onClick={props.setShowStoredAircraft}>Back</button>
         </div>
     )

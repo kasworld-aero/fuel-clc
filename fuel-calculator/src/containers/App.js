@@ -10,8 +10,9 @@ function App() {
   const [finalFuelState, setFinalFuelState] = useState('');
   const [deliveredFuel, setDeliveredFuel] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [storedAircraft, setStoredAircraft] = useState([]);
+  const [storedAircraft, setStoredAircraft] = useState('');
   const [showStoredAircraft, setShowStoredAircraft] = useState(false);
+  const [discrepancy, setDiscrepancy] = useState('');
 
   const setShowStoredAircraftHandler = () => {
     if (showStoredAircraft) {
@@ -25,22 +26,21 @@ function App() {
     setSpecificGravity(event.target.value);
   };
 
-  //! Not storing array data in setStoredAircraft. Will need to re-add discrepancy once made global state. 
+  //! Will need to re-add discrepancy once made global state. 
   const saveDetailsHandler = () => {
-    setStoredAircraft(storedAircraft => [...storedAircraft, [tailNumber, remainingFuel, specificGravity, deliveredFuel, finalFuelState]]);
+    setStoredAircraft(storedAircraft => [...storedAircraft, [tailNumber, remainingFuel, specificGravity, deliveredFuel, finalFuelState, discrepancy + '%']]);
     setTailNumber('');
     setRemainingFuel('');
     setSpecificGravity('0.88');
     setFinalFuelState('');
     setDeliveredFuel('');
     setSubmitted(false);
-    return console.log(storedAircraft);
   };
 
   return (
     <div className="App">
       <h1>Engineering Fuel Calculator</h1>
-      <Cockpit 
+      <Cockpit
         submitted={submitted}
         setSubmitted={setSubmitted}
         tailNumber={tailNumber}
@@ -57,7 +57,9 @@ function App() {
         setStoredAircraft={setStoredAircraft}
         showStoredAircraft={showStoredAircraft}
         setShowStoredAircraft={setShowStoredAircraftHandler}
-        saveDetailsHandler={saveDetailsHandler} />
+        saveDetailsHandler={saveDetailsHandler}
+        discrepancy={discrepancy}
+        setDiscrepancy={setDiscrepancy} />
     </div>
   );
 };

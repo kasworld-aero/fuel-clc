@@ -39,7 +39,11 @@ const cockpit = (props) => {
                     deliveredFuel={props.deliveredFuel}
                     setSubmitted={props.setSubmitted}
                     setShowStoredAircraft={props.setShowStoredAircraft}
-                    saveDetailsHandler={props.saveDetailsHandler} />
+                    setStoredAircraft={props.setStoredAircraft}
+                    storedAircraft={props.storedAircraft}
+                    saveDetailsHandler={props.saveDetailsHandler}
+                    discrepancy={props.discrepancy}
+                    setDiscrepancy={props.setDiscrepancy} />
             )
         }
     }
