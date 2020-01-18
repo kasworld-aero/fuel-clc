@@ -1,14 +1,14 @@
 import React from 'react';
 import InputForm from '../InputForm/InputForm';
 import Discrepancy from '../Discrepancy/Discrepancy';
-import StoredAircraft from '../StoredAircraft/StoredAircraft';
+import StoredAircraftCont from '../StoredAircraft/StoredAircraft';
 
 const cockpit = (props) => {
 
     const onSubmitHandler = () => {
         if (props.showStoredAircraft) {
             return (
-                <StoredAircraft 
+                <StoredAircraftCont 
                     storedAircraft={props.storedAircraft}
                     setShowStoredAircraft={props.setShowStoredAircraft} />
             )

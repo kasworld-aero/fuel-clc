@@ -1,13 +1,18 @@
 import React from 'react';
 
-const storedAircraft = (props) => {
-    
+const storedAircraftCont = (props) => {
+    const storedAircraft = props.storedAircraft;
+    const storedAircraftLi = storedAircraft.map((storedAircraft) => 
+        <li>{storedAircraft}</li> //! NEEDS TO HAVE A UNIQUE KEY, CAUSING ERROR WHEN FIRED
+    );
+
     return (
         <div>
-            {props.storedAircraft}
+            <h2>Stored Aircraft</h2>
+            <ul>{storedAircraftLi}</ul>
             <button onClick={props.setShowStoredAircraft}>Back</button>
         </div>
     )
 };
 
-export default storedAircraft;
+export default storedAircraftCont;

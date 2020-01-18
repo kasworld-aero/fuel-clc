@@ -28,7 +28,9 @@ function App() {
 
   //! Will need to re-add discrepancy once made global state. 
   const saveDetailsHandler = () => {
-    setStoredAircraft(storedAircraft => [...storedAircraft, [tailNumber, remainingFuel, specificGravity, deliveredFuel, finalFuelState, discrepancy + '%']]);
+    setStoredAircraft(storedAircraft => [...storedAircraft, {
+      'Tail Number': tailNumber, 'Fuel Remaining': remainingFuel, 'Specific Gravity': specificGravity, 
+      'Fuel Put In': deliveredFuel, 'Total A/C': finalFuelState, 'Discrepancy': discrepancy + '%'}]);
     setTailNumber('');
     setRemainingFuel('');
     setSpecificGravity('0.88');
