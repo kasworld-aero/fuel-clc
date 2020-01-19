@@ -96,7 +96,7 @@ input[type=range]:focus::-ms-fill-upper {
     background: #959392;
 }
 
-nput[type=range] {
+input[type=range] {
     -webkit-appearance: none;
     width: 100%;
     margin: 5.85px 0;
@@ -198,11 +198,3 @@ input[type=text] {
     width: 30%;
 }
 
-.slidecontainer {
-    /* display: grid; */
-
-}
-
-.spec-gravity-output {
-
-}

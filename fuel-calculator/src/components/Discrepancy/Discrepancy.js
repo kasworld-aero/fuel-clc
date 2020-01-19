@@ -67,16 +67,16 @@ const discrepancy = (props) => {
     return (
         <div>
             <div className='disc'>
-                <span className='results'>
+                <span className='input-box'>
                     A/C Tail Number <strong>{props.tailNumber}</strong> <br />
                 </span>
-                <span className='results'>
+                <span className='input-box'>
                     Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br /> 
                 </span>
-                <span className='results'>
+                <span className='input-box'>
                     Aircraft Recieved Fuel <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
                 </span>
-                <span className='results'>
+                <span className='input-box'>
                     Difference Between Fuel Put In and Recieved <strong>{diffBetweenFuels()}Kg</strong> <br />
                 </span>
                     {calculateDiff()}

@@ -2,8 +2,10 @@ import React from 'react';
 
 const storedAircraftCont = (props) => {
     const storedAircraft = props.storedAircraft;
-    const storedAircraftLi = storedAircraft.map((storedAircraft) => 
-        <li>{storedAircraft}</li> //! NEEDS TO HAVE A UNIQUE KEY, CAUSING ERROR WHEN FIRED
+    const storedAircraftLi = storedAircraft.map((storedAircraft, index) => 
+      <li key={index} className='input-box'>
+          {storedAircraft} 
+      </li>
     );
 
     return (

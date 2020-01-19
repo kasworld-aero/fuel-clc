@@ -14,6 +14,12 @@ function App() {
   const [showStoredAircraft, setShowStoredAircraft] = useState(false);
   const [discrepancy, setDiscrepancy] = useState('');
 
+  const roundedNum = (num) => {
+    return num.toFixed(2);
+  }
+
+  const deliveredFuelKg = roundedNum(deliveredFuel * specificGravity); 
+
   const setShowStoredAircraftHandler = () => {
     if (showStoredAircraft) {
       setShowStoredAircraft(false);
@@ -26,11 +32,10 @@ function App() {
     setSpecificGravity(event.target.value);
   };
 
-  //! Will need to re-add discrepancy once made global state. 
   const saveDetailsHandler = () => {
-    setStoredAircraft(storedAircraft => [...storedAircraft, {
-      'Tail Number': tailNumber, 'Fuel Remaining': remainingFuel, 'Specific Gravity': specificGravity, 
-      'Fuel Put In': deliveredFuel, 'Total A/C': finalFuelState, 'Discrepancy': discrepancy + '%'}]);
+    setStoredAircraft(storedAircraft => [...storedAircraft, [
+      'Tail Number: ' + tailNumber + '. ', 'Fuel Remaining: ' + remainingFuel + 'Kg. ', 'Specific Gravity: ' + specificGravity + '. ', 
+      'Fuel Put In: ' + deliveredFuelKg + 'Kg. ', 'Total A/C: ' + finalFuelState + 'Kg. ', 'Discrepancy: ' + discrepancy + '%.']]);
     setTailNumber('');
     setRemainingFuel('');
     setSpecificGravity('0.88');
