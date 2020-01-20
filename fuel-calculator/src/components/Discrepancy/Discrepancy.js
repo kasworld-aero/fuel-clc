@@ -8,15 +8,8 @@ const discrepancy = (props) => {
     const delivFuel = props.deliveredFuel;
     const aircraftRecievedFuel = finFuel - remFuel;
     const delivKg = delivFuel * specgravity;    
-
-    //? REFACTOR, make a global function that toggles getSubmitted
-    const onClickHandler = () => {
-        return props.setSubmitted(false);
-    }    
     
-    const roundedNum = (num) => {
-            return num.toFixed(2);
-    }
+    const roundedNum = props.roundedNum
 
     const diffBetweenFuels = () => {
         if (aircraftRecievedFuel >= delivKg) {
@@ -83,7 +76,7 @@ const discrepancy = (props) => {
             </div>
             <button onClick={props.setShowStoredAircraft}>Stored Details</button>
             <button onClick={props.saveDetailsHandler}>Save Details</button>
-            <button onClick={onClickHandler} >Back</button>
+            <button onClick={props.onClickHandler} >Back</button>
         </div>
     )
 };

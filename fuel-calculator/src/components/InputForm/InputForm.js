@@ -3,10 +3,6 @@ import './InputForm.css';
 
 const inputForm = (props) => {
 
-    const onClickHandler = () => {
-        return props.setSubmitted(true);
-    } 
-
     return (
         <div>
             <form>
@@ -60,7 +56,7 @@ const inputForm = (props) => {
                 </div>
             </form>
             <button onClick={props.setShowStoredAircraft}>Stored Details</button>
-            <button onClick={onClickHandler}>Submit</button>
+            <button onClick={props.onClickHandler}>Submit</button>
         </div>
     )    
 };

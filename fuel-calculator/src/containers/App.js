@@ -66,7 +66,8 @@ function App() {
         setShowStoredAircraft={setShowStoredAircraftHandler}
         saveDetailsHandler={saveDetailsHandler}
         discrepancy={discrepancy}
-        setDiscrepancy={setDiscrepancy} />
+        setDiscrepancy={setDiscrepancy}
+        roundedNum={roundedNum} />
     </div>
   );
 };

@@ -5,6 +5,14 @@ import StoredAircraftCont from '../StoredAircraft/StoredAircraft';
 
 const cockpit = (props) => {
 
+    const onClickHandler = () => {
+        if (props.submitted === false) {
+            return props.setSubmitted(true);
+        } else if (props.submitted) {
+            return props.setSubmitted(false);
+        }
+    };
+
     const onSubmitHandler = () => {
         if (props.showStoredAircraft) {
             return (
@@ -27,7 +35,8 @@ const cockpit = (props) => {
                     setDeliveredFuel={props.setDeliveredFuel}
                     submitted={props.submitted}
                     setSubmitted={props.setSubmitted}
-                    setShowStoredAircraft={props.setShowStoredAircraft} />
+                    setShowStoredAircraft={props.setShowStoredAircraft}
+                    onClickHandler={onClickHandler} />
             )
         } else if (props.submitted) {
             return (
@@ -43,7 +52,10 @@ const cockpit = (props) => {
                     storedAircraft={props.storedAircraft}
                     saveDetailsHandler={props.saveDetailsHandler}
                     discrepancy={props.discrepancy}
-                    setDiscrepancy={props.setDiscrepancy} />
+                    setDiscrepancy={props.setDiscrepancy}
+                    roundedNum={props.roundedNum}
+                    onClickHandler={onClickHandler}
+                    submitted={props.submitted} />
             )
         }
     }
