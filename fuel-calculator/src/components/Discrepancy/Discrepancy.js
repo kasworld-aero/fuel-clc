@@ -74,7 +74,7 @@ const discrepancy = (props) => {
                 </span>
                     {calculateDiff()}
             </div>
-            <button onClick={props.setShowStoredAircraft}>Stored Details</button>
+            <button onClick={props.refuseEmptyStoredAircraftHandler}>Stored Details</button>
             <button onClick={props.saveDetailsHandler}>Save Details</button>
             <button onClick={props.onClickHandler} >Back</button>
         </div>

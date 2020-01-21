@@ -28,6 +28,14 @@ function App() {
     }
   };
 
+  const refuseEmptyStoredAircraftHandler = () => {
+    if (storedAircraft !== '') {
+      return setShowStoredAircraft();
+    } else {
+      return alert('No Stored Aircraft');
+    }
+  };
+
   const handleSliderChange = (event) => {
     setSpecificGravity(event.target.value);
   };
@@ -67,7 +75,8 @@ function App() {
         saveDetailsHandler={saveDetailsHandler}
         discrepancy={discrepancy}
         setDiscrepancy={setDiscrepancy}
-        roundedNum={roundedNum} />
+        roundedNum={roundedNum}
+        refuseEmptyStoredAircraftHandler={refuseEmptyStoredAircraftHandler} />
     </div>
   );
 };

@@ -37,7 +37,8 @@ const cockpit = (props) => {
                     setSubmitted={props.setSubmitted}
                     setShowStoredAircraft={props.setShowStoredAircraft}
                     onClickHandler={onClickHandler}
-                    storedAircraft={props.storedAircraft} />
+                    storedAircraft={props.storedAircraft}
+                    refuseEmptyStoredAircraftHandler={props.refuseEmptyStoredAircraftHandler} />
             )
         } else if (props.submitted) {
             return (
@@ -56,7 +57,8 @@ const cockpit = (props) => {
                     setDiscrepancy={props.setDiscrepancy}
                     roundedNum={props.roundedNum}
                     onClickHandler={onClickHandler}
-                    submitted={props.submitted} />
+                    submitted={props.submitted}
+                    refuseEmptyStoredAircraftHandler={props.refuseEmptyStoredAircraftHandler} />
             )
         }
     }

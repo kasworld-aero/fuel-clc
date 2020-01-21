@@ -2,15 +2,6 @@ import React from 'react';
 import './InputForm.css';
 
 const inputForm = (props) => {
-
-    const refuseEmptyStoredAircraftHandler = () => {
-        if (props.storedAircraft !== '') {
-            return props.setShowStoredAircraft();
-        } else {
-            return alert('No Stored Aircraft');
-        }
-    };
-
     const preventNaNHandler = () => {
         if (isNaN(props.remainingFuel) || isNaN(props.deliveredFuel) || isNaN(props.finalFuelState)) {
             return alert('Invalid Input'); 
@@ -54,7 +45,7 @@ const inputForm = (props) => {
                         id='myRange' /> 
                     <label id='spec-gravity-output'>{props.specificGravity}</label>               
                 </div>
-                <div className='input-box'>
+                <div className={isNaN(props.finalFuelState) ? 'input-box rejected' : 'input-box'}>
                     <label htmlFor='final-fuelstate'>Total A/C<br /></label>
                     <input
                         name='final-fuelstate'
@@ -62,7 +53,7 @@ const inputForm = (props) => {
                         value={props.finalFuelState}
                         onChange={e => props.setFinalFuelState(e.target.value)} />Kg
                 </div>
-                <div className='input-box'>
+                <div className={isNaN(props.deliveredFuel) ? 'input-box rejected' : 'input-box'}>
                     <label htmlFor='delivered-fuel'>Fuel Put In (Source Gauges)<br /></label>
                     <input
                         name='delivered-fuel'
@@ -71,7 +62,7 @@ const inputForm = (props) => {
                         onChange={e => props.setDeliveredFuel(e.target.value)} />Lts
                 </div>
             </form>
-            <button onClick={refuseEmptyStoredAircraftHandler}>Stored Details</button>
+            <button onClick={props.refuseEmptyStoredAircraftHandler}>Stored Details</button>
             <button onClick={preventNaNHandler}>Submit</button>
         </div>
     )    
