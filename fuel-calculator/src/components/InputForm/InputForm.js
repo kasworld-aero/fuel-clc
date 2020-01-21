@@ -3,6 +3,22 @@ import './InputForm.css';
 
 const inputForm = (props) => {
 
+    const refuseEmptyStoredAircraftHandler = () => {
+        if (props.storedAircraft !== '') {
+            return props.setShowStoredAircraft();
+        } else {
+            return alert('No Stored Aircraft');
+        }
+    };
+
+    const preventNaNHandler = () => {
+        if (isNaN(props.remainingFuel) || isNaN(props.deliveredFuel) || isNaN(props.finalFuelState)) {
+            return alert('Invalid Input'); 
+        } else {
+            return props.onClickHandler();
+        }
+    };
+
     return (
         <div>
             <form>
@@ -15,7 +31,7 @@ const inputForm = (props) => {
                         onChange={e => props.setTailNumber(e.target.value)}
                     />
                 </div>
-                <div className='input-box'>
+                <div className={isNaN(props.remainingFuel) ? 'input-box rejected' : 'input-box'}>
                     <label htmlFor='remaining-fuel'>Fuel Remaining (A/C Gauges)<br /></label>
                     <input
                         name='remaining-fuel'
@@ -55,8 +71,8 @@ const inputForm = (props) => {
                         onChange={e => props.setDeliveredFuel(e.target.value)} />Lts
                 </div>
             </form>
-            <button onClick={props.setShowStoredAircraft}>Stored Details</button>
-            <button onClick={props.onClickHandler}>Submit</button>
+            <button onClick={refuseEmptyStoredAircraftHandler}>Stored Details</button>
+            <button onClick={preventNaNHandler}>Submit</button>
         </div>
     )    
 };

@@ -36,7 +36,8 @@ const cockpit = (props) => {
                     submitted={props.submitted}
                     setSubmitted={props.setSubmitted}
                     setShowStoredAircraft={props.setShowStoredAircraft}
-                    onClickHandler={onClickHandler} />
+                    onClickHandler={onClickHandler}
+                    storedAircraft={props.storedAircraft} />
             )
         } else if (props.submitted) {
             return (
