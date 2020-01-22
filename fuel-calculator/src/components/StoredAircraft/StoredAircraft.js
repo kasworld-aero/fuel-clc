@@ -12,6 +12,7 @@ const storedAircraftCont = (props) => {
         <div>
             <h2>Stored Aircraft</h2>
             <ul>{storedAircraftLi}</ul>
+            <button onClick={props.resetApp}>Reset App</button>
             <button onClick={props.setShowStoredAircraft}>Back</button>
         </div>
     )

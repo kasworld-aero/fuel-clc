@@ -18,7 +18,8 @@ const cockpit = (props) => {
             return (
                 <StoredAircraftCont 
                     storedAircraft={props.storedAircraft}
-                    setShowStoredAircraft={props.setShowStoredAircraft} />
+                    setShowStoredAircraft={props.setShowStoredAircraft}
+                    resetApp={props.resetApp} />
             )
         } else if (props.submitted === false) {
             return (

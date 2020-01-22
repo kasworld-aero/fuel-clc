@@ -40,6 +40,17 @@ function App() {
     setSpecificGravity(event.target.value);
   };
 
+  const resetApp = () => {
+    setShowStoredAircraft(false);
+    setStoredAircraft('');
+    setTailNumber('');
+    setRemainingFuel('');
+    setSpecificGravity('0.88');
+    setFinalFuelState('');
+    setDeliveredFuel('');
+    setSubmitted(false);
+  }
+
   const saveDetailsHandler = () => {
     setStoredAircraft(storedAircraft => [...storedAircraft, [
       'Tail Number: ' + tailNumber + '. ', 'Fuel Remaining: ' + remainingFuel + 'Kg. ', 'Specific Gravity: ' + specificGravity + '. ', 
@@ -76,7 +87,8 @@ function App() {
         discrepancy={discrepancy}
         setDiscrepancy={setDiscrepancy}
         roundedNum={roundedNum}
-        refuseEmptyStoredAircraftHandler={refuseEmptyStoredAircraftHandler} />
+        refuseEmptyStoredAircraftHandler={refuseEmptyStoredAircraftHandler}
+        resetApp={resetApp} />
     </div>
   );
 };
