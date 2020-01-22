@@ -30,7 +30,7 @@ function App() {
 
   const refuseEmptyStoredAircraftHandler = () => {
     if (storedAircraft !== '') {
-      return setShowStoredAircraft();
+      return setShowStoredAircraftHandler();
     } else {
       return alert('No Stored Aircraft');
     }
