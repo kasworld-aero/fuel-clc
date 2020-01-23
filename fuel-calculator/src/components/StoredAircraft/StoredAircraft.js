@@ -1,21 +1,23 @@
 import React from 'react';
+import StoredAircraftLi from './StoredAircraftLi'
 
-const storedAircraftCont = (props) => {
-    const storedAircraft = props.storedAircraft;
-    const storedAircraftLi = storedAircraft.map((storedAircraft, index) => 
-      <li key={index} className='input-box'>
-          {storedAircraft} 
-      </li>
-    );
+const StoredAircraftCont = (props) => {
+    const storedAircraft = props.storedAircraft
 
     return (
         <div>
             <h2>Stored Aircraft</h2>
-            <ul>{storedAircraftLi}</ul>
-            <button onClick={props.resetApp}>Reset App</button>
+            <ul>
+                {storedAircraft.map((storedAircraft, index) =>
+                    <StoredAircraftLi
+                        key={index}
+                        className='input-box'
+                        storedAircraft={storedAircraft} />
+                )}
+            </ul>
             <button onClick={props.setShowStoredAircraft}>Back</button>
         </div>
     )
 };
 
-export default storedAircraftCont;
+export default StoredAircraftCont
