@@ -4,6 +4,12 @@ import StoredAircraftLi from "./StoredAircraftLi";
 const StoredAircraftCont = props => {
   const storedAircraft = props.storedAircraft;
 
+  const confirmResetWindow = () => {
+      if(window.confirm('This will clear all stored Aircraft. Do you want to continue')) {
+          return props.resetApp()
+      };
+  };
+
   return (
     <div>
       <h2>Stored Aircraft</h2>
@@ -16,7 +22,7 @@ const StoredAircraftCont = props => {
           />
         ))}
       </ul>
-      <button onClick={props.resetApp}>Reset</button>
+      <button onClick={confirmResetWindow}>Reset</button>
       <button onClick={props.setShowStoredAircraft}>Back</button>
     </div>
   );
