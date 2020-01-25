@@ -57,28 +57,40 @@ const discrepancy = (props) => {
         }
     };
 
+    const handleKeyPress = (e) => {
+      if (e.key === "Enter") {
+        return props.saveDetailsHandler();
+      }
+    };
+
     return (
-        <div>
-            <div className='disc'>
-                <span className='input-box'>
-                    A/C Tail Number <strong>{props.tailNumber}</strong> <br />
-                </span>
-                <span className='input-box'>
-                    Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br /> 
-                </span>
-                <span className='input-box'>
-                    Aircraft Recieved Fuel <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
-                </span>
-                <span className='input-box'>
-                    Difference Between Fuel Put In and Recieved <strong>{diffBetweenFuels()}Kg</strong> <br />
-                </span>
-                    {calculateDiff()}
-            </div>
-            <button onClick={props.refuseEmptyStoredAircraftHandler}>Stored Details</button>
-            <button onClick={props.saveDetailsHandler}>Save Details</button>
-            <button onClick={props.onClickHandler} >Back</button>
+      <div>
+        <div className="disc">
+          <span className="input-box">
+            A/C Tail Number <strong>{props.tailNumber}</strong> <br />
+          </span>
+          <span className="input-box">
+            Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
+          </span>
+          <span className="input-box">
+            Aircraft Recieved Fuel{" "}
+            <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
+          </span>
+          <span className="input-box">
+            Difference Between Fuel Put In and Recieved{" "}
+            <strong>{diffBetweenFuels()}Kg</strong> <br />
+          </span>
+          {calculateDiff()}
         </div>
-    )
+        <button onClick={props.refuseEmptyStoredAircraftHandler}>
+          Stored Details
+        </button>
+        <button onClick={props.saveDetailsHandler} onKeyPress={handleKeyPress}>
+          Save Details
+        </button>
+        <button onClick={props.onClickHandler}>Back</button>
+      </div>
+    );
 };
 
 export default discrepancy;
