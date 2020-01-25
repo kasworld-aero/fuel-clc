@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const StoredAircraftLi = props => {
-  const [storedAircraft] = useState(props.storedAircraft);
   const [classEnabled, setClassEnabled] = useState(false);
 
   return (
@@ -10,7 +9,7 @@ const StoredAircraftLi = props => {
       className="input-box"
       style={classEnabled ? { textDecoration: "line-through" } : {}}
     >
-      {storedAircraft}
+      {props.storedAircraft}
     </li>
   );
 };

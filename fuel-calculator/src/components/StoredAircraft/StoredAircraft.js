@@ -1,8 +1,8 @@
 import React from 'react';
-import StoredAircraftLi from './StoredAircraftLi'
+import StoredAircraftLi from './StoredAircraftLi';
 
 const StoredAircraftCont = (props) => {
-    const storedAircraft = props.storedAircraft
+    const storedAircraft = props.storedAircraft;
 
     return (
         <div>
@@ -20,4 +20,4 @@ const StoredAircraftCont = (props) => {
     )
 };
 
-export default StoredAircraftCont
+export default StoredAircraftCont;
