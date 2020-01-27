@@ -72,7 +72,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Engineering Fuel Calculator</h1>
       <Cockpit
         submitted={submitted}
         setSubmitted={setSubmitted}

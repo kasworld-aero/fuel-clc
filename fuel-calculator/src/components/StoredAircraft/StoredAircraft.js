@@ -12,7 +12,7 @@ const StoredAircraftCont = props => {
 
   return (
     <div>
-      <h2>Stored Aircraft</h2>
+      <h2>Stored Aircraft Details</h2>
       <ul>
         {storedAircraft.map((storedAircraft, index) => (
           <StoredAircraftLi

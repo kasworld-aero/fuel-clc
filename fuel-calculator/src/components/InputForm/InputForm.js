@@ -36,8 +36,16 @@ const inputForm = props => {
     preventNaNHandler();
   };
 
+  /**
+   * ! Need to get input form to focus on first input, currently not working
+     useEffect(() => {
+     document.getElementById('tailNumber').focus()
+   });
+   */
+  
   return (
-    <div>
+    <div className="input-cont">
+      <h2>Enter Details</h2>
       <form>
         <div className="input-box">
           <label htmlFor="tail-number">
@@ -46,6 +54,7 @@ const inputForm = props => {
           </label>
           <input
             name="tail-number"
+            id="tailNumber"
             type="text"
             value={props.tailNumber}
             onChange={e => props.setTailNumber(e.target.value)}

@@ -2,18 +2,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #FFFFFF;
-}
-
-.input-box {
-  border: 1px solid #C1C1C1;
-  padding: 5px;
-  margin: 0px 5px 20px 0px;
-  background-color: #E5E5E5;
-}
-
-.input-box input {
-  text-align: right;
+  background-color: #9AF3E3;
+  color: #fffffe;
 }
 
 ul {
