@@ -21,11 +21,11 @@ const inputForm = props => {
   };
 
   const tailNumEnterHandler = () => {
-    document.getElementById('remFuel').focus();
+    document.getElementById("remFuel").focus();
   };
 
   const remFuelEnterHandler = () => {
-    document.getElementById('finFuel').focus();
+    document.getElementById("finFuel").focus();
   };
 
   const finFuelEnterHandler = () => {
@@ -42,10 +42,10 @@ const inputForm = props => {
      document.getElementById('tailNumber').focus()
    });
    */
-  
+
   return (
     <div className="input-cont">
-      <h2>Enter Details</h2>
+      <h1>Enter Details</h1>
       <form>
         <div className="input-box">
           <label htmlFor="tail-number">
@@ -56,6 +56,7 @@ const inputForm = props => {
             name="tail-number"
             id="tailNumber"
             type="text"
+            className="text-input"
             value={props.tailNumber}
             onChange={e => props.setTailNumber(e.target.value)}
             onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
@@ -74,6 +75,7 @@ const inputForm = props => {
             name="remaining-fuel"
             id="remFuel"
             type="text"
+            className="text-input"
             value={props.remainingFuel}
             onChange={e => props.setRemainingFuel(e.target.value)}
             onKeyPress={e => handleKeyPress(e, remFuelEnterHandler)}
@@ -111,6 +113,7 @@ const inputForm = props => {
             name="final-fuelstate"
             type="text"
             id="finFuel"
+            className="text-input"
             value={props.finalFuelState}
             onChange={e => props.setFinalFuelState(e.target.value)}
             onKeyPress={e => handleKeyPress(e, finFuelEnterHandler)}
@@ -130,6 +133,7 @@ const inputForm = props => {
             name="delivered-fuel"
             type="text"
             id="fuelIn"
+            className="text-input"
             value={props.deliveredFuel}
             onChange={e => props.setDeliveredFuel(e.target.value)}
             onKeyPress={e => handleKeyPress(e, fuelInEnterHandler)}
@@ -137,10 +141,10 @@ const inputForm = props => {
           Lts
         </div>
       </form>
-      <button onClick={props.refuseEmptyStoredAircraftHandler}>
-        Stored Details
-      </button>
-      <button onClick={preventNaNHandler}>Submit</button>
+      <div className="button-cont">
+        <button onClick={props.refuseEmptyStoredAircraftHandler}>Stored</button>
+        <button onClick={preventNaNHandler}>Submit</button>
+      </div>
     </div>
   );
 };
