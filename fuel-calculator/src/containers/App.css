@@ -10,7 +10,7 @@ ul {
   padding: 0;
 }
 
-button {
+/* button {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #fa9417) );
 	background:-moz-linear-gradient( center top, #fb9e25 5%, #fa9417 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#fa9417');
@@ -53,7 +53,7 @@ button:hover {
 button:active {
 	position:relative;
 	top:1px;
-}
+} */
 
 .button-cont {
   display: flex;
