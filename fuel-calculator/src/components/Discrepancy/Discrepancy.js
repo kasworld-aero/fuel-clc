@@ -1,5 +1,6 @@
 import React from "react";
 import "./Discrepancy.css";
+import Button from "@material-ui/core/Button";
 
 const discrepancy = props => {
   const remFuel = props.remainingFuel;
@@ -49,6 +50,8 @@ const discrepancy = props => {
     }
   };
 
+  const storedAircraftButtonHandler = props.storedAircraftButtonHandler;
+
   return (
     <div>
       <h2>Check Details</h2>
@@ -69,11 +72,23 @@ const discrepancy = props => {
         </span>
         {calculateDiff()}
       </div>
-      <button onClick={props.refuseEmptyStoredAircraftHandler}>
-        Stored Details
-      </button>
-      <button onClick={props.saveDetailsHandler}>Save Details</button>
-      <button onClick={props.onClickHandler}>Back</button>
+      <div className="button-cont">
+        {storedAircraftButtonHandler()}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={props.saveDetailsHandler}
+        >
+          Save Details
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={props.onClickHandler}
+        >
+          Back
+        </Button>
+      </div>
     </div>
   );
 };

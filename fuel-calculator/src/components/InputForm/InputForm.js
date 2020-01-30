@@ -1,6 +1,6 @@
 import React from "react";
 import "./InputForm.css";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 const inputForm = props => {
   const preventNaNHandler = () => {
@@ -43,6 +43,8 @@ const inputForm = props => {
      document.getElementById('tailNumber').focus()
    });
    */
+
+  const storedAircraftButtonHandler = props.storedAircraftButtonHandler;
 
   return (
     <div className="input-cont">
@@ -144,7 +146,7 @@ const inputForm = props => {
         </div>
       </form>
       <div className="button-cont">
-        <button onClick={props.refuseEmptyStoredAircraftHandler}>Stored</button>
+        {storedAircraftButtonHandler()}
         <Button variant="contained" color="primary" onClick={preventNaNHandler}>
           Submit
         </Button>

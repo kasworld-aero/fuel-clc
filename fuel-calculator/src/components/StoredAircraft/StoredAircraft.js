@@ -1,13 +1,18 @@
 import React from "react";
 import StoredAircraftLi from "./StoredAircraftLi";
+import Button from "@material-ui/core/Button";
 
 const StoredAircraftCont = props => {
   const storedAircraft = props.storedAircraft;
 
   const confirmResetWindow = () => {
-      if(window.confirm('This will clear all stored Aircraft. Do you want to continue')) {
-          return props.resetApp()
-      };
+    if (
+      window.confirm(
+        "This will clear all stored Aircraft. Do you want to continue"
+      )
+    ) {
+      return props.resetApp();
+    }
   };
 
   return (
@@ -22,8 +27,22 @@ const StoredAircraftCont = props => {
           />
         ))}
       </ul>
-      <button onClick={confirmResetWindow}>Reset</button>
-      <button onClick={props.setShowStoredAircraft}>Back</button>
+      <div className="button-cont">
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={confirmResetWindow}
+        >
+          Reset
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={props.setShowStoredAircraft}
+        >
+          Back
+        </Button>
+      </div>
     </div>
   );
 };

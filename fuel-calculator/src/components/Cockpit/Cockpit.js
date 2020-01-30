@@ -3,6 +3,7 @@ import InputForm from "../InputForm/InputForm";
 import Discrepancy from "../Discrepancy/Discrepancy";
 import StoredAircraftCont from "../StoredAircraft/StoredAircraft";
 import "./Cockpit.css";
+import Button from "@material-ui/core/Button";
 
 const cockpit = props => {
   const onClickHandler = () => {
@@ -10,6 +11,26 @@ const cockpit = props => {
       return props.setSubmitted(true);
     } else if (props.submitted) {
       return props.setSubmitted(false);
+    }
+  };
+
+  const storedAircraftButtonHandler = () => {
+    if (props.storedAircraft === "") {
+      return (
+        <Button variant="contained" disabled>
+          Stored
+        </Button>
+      );
+    } else {
+      return (
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={props.refuseEmptyStoredAircraftHandler}
+        >
+          Stored
+        </Button>
+      );
     }
   };
 
@@ -46,6 +67,7 @@ const cockpit = props => {
             refuseEmptyStoredAircraftHandler={
               props.refuseEmptyStoredAircraftHandler
             }
+            storedAircraftButtonHandler={storedAircraftButtonHandler}
           />
         </div>
       );
@@ -71,6 +93,7 @@ const cockpit = props => {
             refuseEmptyStoredAircraftHandler={
               props.refuseEmptyStoredAircraftHandler
             }
+            storedAircraftButtonHandler={storedAircraftButtonHandler}
           />
         </div>
       );
