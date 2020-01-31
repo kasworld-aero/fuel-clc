@@ -1,6 +1,7 @@
 import React from "react";
 import "./InputForm.css";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const inputForm = props => {
   const preventNaNHandler = () => {
@@ -51,7 +52,7 @@ const inputForm = props => {
       <h1>Enter Details</h1>
 
       <form>
-        <div className="input-box">
+        <Paper className="input-box">
           <label htmlFor="tail-number">
             A/C Tail Number
             <br />
@@ -65,8 +66,8 @@ const inputForm = props => {
             onChange={e => props.setTailNumber(e.target.value)}
             onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
           />
-        </div>
-        <div
+        </Paper>
+        <Paper
           className={
             isNaN(props.remainingFuel) ? "input-box rejected" : "input-box"
           }
@@ -85,8 +86,8 @@ const inputForm = props => {
             onKeyPress={e => handleKeyPress(e, remFuelEnterHandler)}
           />
           Kg
-        </div>
-        <div className="input-box slidecontainer">
+        </Paper>
+        <Paper className="input-box slidecontainer">
           <label htmlFor="specific-gravity">
             Specific Gravity
             <br />
@@ -103,8 +104,8 @@ const inputForm = props => {
             id="myRange"
           />
           <label id="spec-gravity-output">{props.specificGravity}</label>
-        </div>
-        <div
+        </Paper>
+        <Paper
           className={
             isNaN(props.finalFuelState) ? "input-box rejected" : "input-box"
           }
@@ -123,8 +124,8 @@ const inputForm = props => {
             onKeyPress={e => handleKeyPress(e, finFuelEnterHandler)}
           />
           Kg
-        </div>
-        <div
+        </Paper>
+        <Paper
           className={
             isNaN(props.deliveredFuel) ? "input-box rejected" : "input-box"
           }
@@ -143,7 +144,7 @@ const inputForm = props => {
             onKeyPress={e => handleKeyPress(e, fuelInEnterHandler)}
           />
           Lts
-        </div>
+        </Paper>
       </form>
       <div className="button-cont">
         {storedAircraftButtonHandler()}
