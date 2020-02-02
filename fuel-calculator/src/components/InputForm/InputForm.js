@@ -1,6 +1,7 @@
 import React from "react";
 import "./InputForm.css";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const inputForm = props => {
   const preventNaNHandler = () => {
@@ -37,36 +38,30 @@ const inputForm = props => {
     preventNaNHandler();
   };
 
-  /**
-   * ! Need to get input form to focus on first input, currently not working
-     useEffect(() => {
-     document.getElementById('tailNumber').focus()
-   });
-   */
-
   const storedAircraftButtonHandler = props.storedAircraftButtonHandler;
 
   return (
     <div className="input-cont">
-      <h1>Enter Details</h1>
-
-      <form>
-        <div className="input-box">
-          <label htmlFor="tail-number">
-            A/C Tail Number
-            <br />
-          </label>
-          <input
-            name="tail-number"
-            id="tailNumber"
-            type="text"
-            className="text-input"
-            value={props.tailNumber}
-            onChange={e => props.setTailNumber(e.target.value)}
-            onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
-          />
-        </div>
-        <div
+      <div className='content-wrapper'>
+        <h1>Enter Details</h1>
+        <Paper className="input-box">
+          <span className="input-box-item">
+            <label htmlFor="tail-number">A/C Tail Number</label>
+          </span>
+          <br />
+          <span className="input-box-item">
+            <input
+              name="tail-number"
+              id="tailNumber"
+              type="text"
+              className="text-input"
+              value={props.tailNumber}
+              onChange={e => props.setTailNumber(e.target.value)}
+              onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
+            />
+          </span>
+        </Paper>
+        <Paper
           className={
             isNaN(props.remainingFuel) ? "input-box rejected" : "input-box"
           }
@@ -78,15 +73,15 @@ const inputForm = props => {
           <input
             name="remaining-fuel"
             id="remFuel"
-            type="text"
+            type="number"
             className="text-input"
             value={props.remainingFuel}
             onChange={e => props.setRemainingFuel(e.target.value)}
             onKeyPress={e => handleKeyPress(e, remFuelEnterHandler)}
           />
           Kg
-        </div>
-        <div className="input-box slidecontainer">
+        </Paper>
+        <Paper className="input-box slidecontainer">
           <label htmlFor="specific-gravity">
             Specific Gravity
             <br />
@@ -103,8 +98,8 @@ const inputForm = props => {
             id="myRange"
           />
           <label id="spec-gravity-output">{props.specificGravity}</label>
-        </div>
-        <div
+        </Paper>
+        <Paper
           className={
             isNaN(props.finalFuelState) ? "input-box rejected" : "input-box"
           }
@@ -115,7 +110,7 @@ const inputForm = props => {
           </label>
           <input
             name="final-fuelstate"
-            type="text"
+            type="number"
             id="finFuel"
             className="text-input"
             value={props.finalFuelState}
@@ -123,8 +118,8 @@ const inputForm = props => {
             onKeyPress={e => handleKeyPress(e, finFuelEnterHandler)}
           />
           Kg
-        </div>
-        <div
+        </Paper>
+        <Paper
           className={
             isNaN(props.deliveredFuel) ? "input-box rejected" : "input-box"
           }
@@ -135,7 +130,7 @@ const inputForm = props => {
           </label>
           <input
             name="delivered-fuel"
-            type="text"
+            type="number"
             id="fuelIn"
             className="text-input"
             value={props.deliveredFuel}
@@ -143,14 +138,20 @@ const inputForm = props => {
             onKeyPress={e => handleKeyPress(e, fuelInEnterHandler)}
           />
           Lts
-        </div>
-      </form>
-      <div className="button-cont">
-        {storedAircraftButtonHandler()}
-        <Button variant="contained" color="primary" onClick={preventNaNHandler}>
-          Submit
-        </Button>
+        </Paper>
       </div>
+      <footer>
+        <div className="button-wrapper">
+          {storedAircraftButtonHandler()}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={preventNaNHandler}
+          >
+            Submit
+          </Button>
+        </div>
+      </footer>
     </div>
   );
 };

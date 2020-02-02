@@ -17,31 +17,35 @@ const StoredAircraftCont = props => {
 
   return (
     <div>
-      <h2>Stored Aircraft Details</h2>
-      <ul>
-        {storedAircraft.map((storedAircraft, index) => (
-          <StoredAircraftLi
-            key={index}
-            className="input-box"
-            storedAircraft={storedAircraft}
-          />
-        ))}
-      </ul>
-      <div className="button-cont">
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={confirmResetWindow}
-        >
-          Reset
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={props.setShowStoredAircraft}
-        >
-          Back
-        </Button>
+      <div className='input-cont'>
+        <div className='content-wrapper'>
+          <h1>Stored Aircraft Details</h1>
+            {storedAircraft.map((storedAircraft, index) => (
+              <StoredAircraftLi
+                key={index}
+                className="input-box"
+                storedAircraft={storedAircraft}
+              />
+            ))}
+        </div>
+        <footer>
+          <div className="button-wrapper">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={confirmResetWindow}
+            >
+              Reset
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={props.setShowStoredAircraft}
+            >
+              Back
+            </Button>
+          </div>
+        </footer>
       </div>
     </div>
   );
