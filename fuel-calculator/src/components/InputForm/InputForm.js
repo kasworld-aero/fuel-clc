@@ -42,104 +42,105 @@ const inputForm = props => {
 
   return (
     <div className="input-cont">
-      <h1>Enter Details</h1>
-
-      <Paper className="input-box">
-        <span className="input-box-item">
-          <label htmlFor="tail-number">A/C Tail Number</label>
-        </span>
-        <br />
-        <span className="input-box-item">
+      <div className='content-wrapper'>
+        <h1>Enter Details</h1>
+        <Paper className="input-box">
+          <span className="input-box-item">
+            <label htmlFor="tail-number">A/C Tail Number</label>
+          </span>
+          <br />
+          <span className="input-box-item">
+            <input
+              name="tail-number"
+              id="tailNumber"
+              type="text"
+              className="text-input"
+              value={props.tailNumber}
+              onChange={e => props.setTailNumber(e.target.value)}
+              onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
+            />
+          </span>
+        </Paper>
+        <Paper
+          className={
+            isNaN(props.remainingFuel) ? "input-box rejected" : "input-box"
+          }
+        >
+          <label htmlFor="remaining-fuel">
+            Fuel Remaining (A/C Gauges)
+            <br />
+          </label>
           <input
-            name="tail-number"
-            id="tailNumber"
-            type="text"
+            name="remaining-fuel"
+            id="remFuel"
+            type="number"
             className="text-input"
-            value={props.tailNumber}
-            onChange={e => props.setTailNumber(e.target.value)}
-            onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
+            value={props.remainingFuel}
+            onChange={e => props.setRemainingFuel(e.target.value)}
+            onKeyPress={e => handleKeyPress(e, remFuelEnterHandler)}
           />
-        </span>
-      </Paper>
-      <Paper
-        className={
-          isNaN(props.remainingFuel) ? "input-box rejected" : "input-box"
-        }
-      >
-        <label htmlFor="remaining-fuel">
-          Fuel Remaining (A/C Gauges)
-          <br />
-        </label>
-        <input
-          name="remaining-fuel"
-          id="remFuel"
-          type="number"
-          className="text-input"
-          value={props.remainingFuel}
-          onChange={e => props.setRemainingFuel(e.target.value)}
-          onKeyPress={e => handleKeyPress(e, remFuelEnterHandler)}
-        />
-        Kg
-      </Paper>
-      <Paper className="input-box slidecontainer">
-        <label htmlFor="specific-gravity">
-          Specific Gravity
-          <br />
-        </label>
-        <input
-          name="specific-gravity"
-          type="range"
-          min="0.7"
-          max="0.88"
-          defaultValue={props.specificGravity}
-          onChange={props.handleSliderChange}
-          className="slider"
-          step="0.01"
-          id="myRange"
-        />
-        <label id="spec-gravity-output">{props.specificGravity}</label>
-      </Paper>
-      <Paper
-        className={
-          isNaN(props.finalFuelState) ? "input-box rejected" : "input-box"
-        }
-      >
-        <label htmlFor="final-fuelstate">
-          Total A/C
-          <br />
-        </label>
-        <input
-          name="final-fuelstate"
-          type="number"
-          id="finFuel"
-          className="text-input"
-          value={props.finalFuelState}
-          onChange={e => props.setFinalFuelState(e.target.value)}
-          onKeyPress={e => handleKeyPress(e, finFuelEnterHandler)}
-        />
-        Kg
-      </Paper>
-      <Paper
-        className={
-          isNaN(props.deliveredFuel) ? "input-box rejected" : "input-box"
-        }
-      >
-        <label htmlFor="delivered-fuel">
-          Fuel Put In (Source Gauges)
-          <br />
-        </label>
-        <input
-          name="delivered-fuel"
-          type="number"
-          id="fuelIn"
-          className="text-input"
-          value={props.deliveredFuel}
-          onChange={e => props.setDeliveredFuel(e.target.value)}
-          onKeyPress={e => handleKeyPress(e, fuelInEnterHandler)}
-        />
-        Lts
-      </Paper>
-      <div className="button-cont">
+          Kg
+        </Paper>
+        <Paper className="input-box slidecontainer">
+          <label htmlFor="specific-gravity">
+            Specific Gravity
+            <br />
+          </label>
+          <input
+            name="specific-gravity"
+            type="range"
+            min="0.7"
+            max="0.88"
+            defaultValue={props.specificGravity}
+            onChange={props.handleSliderChange}
+            className="slider"
+            step="0.01"
+            id="myRange"
+          />
+          <label id="spec-gravity-output">{props.specificGravity}</label>
+        </Paper>
+        <Paper
+          className={
+            isNaN(props.finalFuelState) ? "input-box rejected" : "input-box"
+          }
+        >
+          <label htmlFor="final-fuelstate">
+            Total A/C
+            <br />
+          </label>
+          <input
+            name="final-fuelstate"
+            type="number"
+            id="finFuel"
+            className="text-input"
+            value={props.finalFuelState}
+            onChange={e => props.setFinalFuelState(e.target.value)}
+            onKeyPress={e => handleKeyPress(e, finFuelEnterHandler)}
+          />
+          Kg
+        </Paper>
+        <Paper
+          className={
+            isNaN(props.deliveredFuel) ? "input-box rejected" : "input-box"
+          }
+        >
+          <label htmlFor="delivered-fuel">
+            Fuel Put In (Source Gauges)
+            <br />
+          </label>
+          <input
+            name="delivered-fuel"
+            type="number"
+            id="fuelIn"
+            className="text-input"
+            value={props.deliveredFuel}
+            onChange={e => props.setDeliveredFuel(e.target.value)}
+            onKeyPress={e => handleKeyPress(e, fuelInEnterHandler)}
+          />
+          Lts
+        </Paper>
+      </div>
+      <footer>
         <div className="button-wrapper">
           {storedAircraftButtonHandler()}
           <Button
@@ -150,7 +151,7 @@ const inputForm = props => {
             Submit
           </Button>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };

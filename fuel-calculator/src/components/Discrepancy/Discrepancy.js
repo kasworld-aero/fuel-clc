@@ -55,24 +55,28 @@ const discrepancy = props => {
 
   return (
     <div className="input-cont">
-      <h1>Check Details</h1>
-      <div className="disc">
-        <Paper className="input-box">
-          A/C Tail Number <strong>{props.tailNumber}</strong> <br />
-        </Paper>
-        <Paper className="input-box">
-          Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
-        </Paper>
-        <Paper className="input-box">
-          Aircraft Recieved Fuel{" "}
-          <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
-        </Paper>
-        <Paper className="input-box">
-          Difference Between Fuel Put In and Recieved{" "}
-          <strong>{diffBetweenFuels()}Kg</strong> <br />
-        </Paper>
-        {calculateDiff()}
-        <div className="button-cont">
+      <div className='content-wrapper'>
+        <h1>Check Details</h1>
+        <div className="disc">
+          <Paper className="input-box">
+            A/C Tail Number <strong>{props.tailNumber}</strong> <br />
+          </Paper>
+          <Paper className="input-box">
+            Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
+          </Paper>
+          <Paper className="input-box">
+            Aircraft Recieved Fuel{" "}
+            <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
+          </Paper>
+          <Paper className="input-box">
+            Difference Between Fuel Put In and Recieved{" "}
+            <strong>{diffBetweenFuels()}Kg</strong> <br />
+          </Paper>
+          {calculateDiff()}
+
+        </div>
+      </div>
+        <footer>
           <div className="button-wrapper">
             {storedAircraftButtonHandler()}
             <Button
@@ -90,8 +94,7 @@ const discrepancy = props => {
               Back
             </Button>
           </div>
-        </div>
-      </div>
+        </footer>
     </div>
   );
 };

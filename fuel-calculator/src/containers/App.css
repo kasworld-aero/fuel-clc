@@ -1,23 +1,10 @@
 body {
-  background-color: #9af3e3;
+  background-color: lightskyblue;
 }
 
 .App {
   text-align: center;
   font-size: 4.5vw;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.button-cont {
-  position: fixed;
-  bottom: 30px;
-  width: 100%;
-  justify-content: center;
 }
 
 .button-wrapper {
@@ -32,8 +19,19 @@ h1 {
 }
 
 .input-cont {
-  width: auto;
-  height: 100%;
+  position: relative;
+  min-height: 90vh;
+}
+
+.content-wrapper {
+    padding-bottom: 2.5em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5em;
 }
 
 .input-box {
