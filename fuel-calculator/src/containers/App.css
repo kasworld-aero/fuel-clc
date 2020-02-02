@@ -4,7 +4,6 @@ body {
 
 .App {
   text-align: center;
-  color: #fffffe;
   font-size: 4.5vw;
 }
 
@@ -15,8 +14,8 @@ ul {
 }
 
 .button-cont {
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 30px;
   width: 100%;
   justify-content: center;
 }
@@ -24,10 +23,12 @@ ul {
 .button-wrapper {
   display: flex;
   justify-content: space-between;
+  margin: 20px;
 }
 
 h1 {
   font-size: 10vw;
+  color: #fffffe;
 }
 
 .input-cont {
