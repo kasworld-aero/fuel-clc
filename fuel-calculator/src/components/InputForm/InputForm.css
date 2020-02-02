@@ -218,6 +218,30 @@ textarea:focus {
   border: 1px solid #9d9880;
 }
 
+input[type="number"] {
+  width: 30%;
+}
+
+input[type="number"],
+textarea {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #dddddd;
+}
+
+input[type="number"]:focus,
+textarea:focus {
+  box-shadow: 0 0 5px #9d9880;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #9d9880;
+}
+
 .rejected input {
   border: 2px solid red;
 }
@@ -233,17 +257,21 @@ textarea:focus {
 
 /* ! Sort this to make cards look smart */
 .input-box {
-  display: flex;
-  justify-items: center;
+  /* display: flex; */
+  /* display: grid;
+  grid-template-rows: repeat(2, 1fr); */
+  justify-content: center;
   align-content: center;
   right: 15px;
   padding: 5px;
   margin: 20px auto;
   background-color: #4fc4b6; 
   height: 10vh;
-  /* min-width: 110%; */
-  max-width: 500px;
+  max-width: 90%;
+}
 
+.input-box-item {
+  height: fit-content;
 }
 
 .input-box input {
@@ -251,5 +279,5 @@ textarea:focus {
 }
 
 .text-input {
-    height: 1.25em;
+    height: 1.3em;
 }

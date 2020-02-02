@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  background-color: #9AF3E3;
+  background-color: #9af3e3;
   color: #fffffe;
+  font-size: 4.5vw;
 }
 
 ul {
@@ -13,4 +14,18 @@ ul {
 .button-cont {
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+  font-size: 10vw;
+}
+
+@media screen and (min-width: 500px) {
+  .App {
+    font-size: 1.33em;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
 }

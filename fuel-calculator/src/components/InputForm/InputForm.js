@@ -38,13 +38,6 @@ const inputForm = props => {
     preventNaNHandler();
   };
 
-  /**
-   * ! Need to get input form to focus on first input, currently not working
-     useEffect(() => {
-     document.getElementById('tailNumber').focus()
-   });
-   */
-
   const storedAircraftButtonHandler = props.storedAircraftButtonHandler;
 
   return (
@@ -53,19 +46,20 @@ const inputForm = props => {
 
       <form>
         <Paper className="input-box">
-          <label htmlFor="tail-number">
-            A/C Tail Number
-            <br />
-          </label>
-          <input
-            name="tail-number"
-            id="tailNumber"
-            type="text"
-            className="text-input"
-            value={props.tailNumber}
-            onChange={e => props.setTailNumber(e.target.value)}
-            onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
-          />
+          <span className="input-box-item">
+            <label htmlFor="tail-number">A/C Tail Number</label>
+          </span><br />
+          <span className="input-box-item">
+            <input
+              name="tail-number"
+              id="tailNumber"
+              type="text"
+              className="text-input"
+              value={props.tailNumber}
+              onChange={e => props.setTailNumber(e.target.value)}
+              onKeyPress={e => handleKeyPress(e, tailNumEnterHandler)}
+            />
+          </span>
         </Paper>
         <Paper
           className={
@@ -79,7 +73,7 @@ const inputForm = props => {
           <input
             name="remaining-fuel"
             id="remFuel"
-            type="text"
+            type="number"
             className="text-input"
             value={props.remainingFuel}
             onChange={e => props.setRemainingFuel(e.target.value)}
@@ -116,7 +110,7 @@ const inputForm = props => {
           </label>
           <input
             name="final-fuelstate"
-            type="text"
+            type="number"
             id="finFuel"
             className="text-input"
             value={props.finalFuelState}
@@ -136,7 +130,7 @@ const inputForm = props => {
           </label>
           <input
             name="delivered-fuel"
-            type="text"
+            type="number"
             id="fuelIn"
             className="text-input"
             value={props.deliveredFuel}
