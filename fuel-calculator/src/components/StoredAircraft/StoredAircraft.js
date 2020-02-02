@@ -28,20 +28,22 @@ const StoredAircraftCont = props => {
         ))}
       </ul>
       <div className="button-cont">
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={confirmResetWindow}
-        >
-          Reset
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={props.setShowStoredAircraft}
-        >
-          Back
-        </Button>
+        <div className="button-wrapper">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={confirmResetWindow}
+          >
+            Reset
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={props.setShowStoredAircraft}
+          >
+            Back
+          </Button>
+        </div>
       </div>
     </div>
   );

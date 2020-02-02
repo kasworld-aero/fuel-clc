@@ -1,6 +1,7 @@
 import React from "react";
 import "./Discrepancy.css";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const discrepancy = props => {
   const remFuel = props.remainingFuel;
@@ -32,18 +33,18 @@ const discrepancy = props => {
     const calc = 100 * (c / (d / 2));
     props.setDiscrepancy(roundedNum(calc));
     if (remFuel === "" || finFuel === "" || delivFuel === "") {
-      return <div className="disc-calc">Discrepancy is calculating...</div>;
+      return <Paper className="disc-calc">Discrepancy is calculating...</Paper>;
     } else if (calc >= 4 || calc <= -4) {
       return (
-        <div className="not-acc">
+        <Paper className="not-acc">
           Discrepancy is <strong>{props.discrepancy}%</strong>
-        </div>
+        </Paper>
       );
     } else if (calc < 4 || calc > -4) {
       return (
-        <div className="acc">
+        <Paper className="acc">
           Discrepancy is <strong>{props.discrepancy}%</strong>
-        </div>
+        </Paper>
       );
     } else {
       return <div className="disc-calc">Error Calculating Discrepancy</div>;
@@ -53,41 +54,43 @@ const discrepancy = props => {
   const storedAircraftButtonHandler = props.storedAircraftButtonHandler;
 
   return (
-    <div>
-      <h2>Check Details</h2>
+    <div className="input-cont">
+      <h1>Check Details</h1>
       <div className="disc">
-        <span className="input-box">
+        <Paper className="input-box">
           A/C Tail Number <strong>{props.tailNumber}</strong> <br />
-        </span>
-        <span className="input-box">
+        </Paper>
+        <Paper className="input-box">
           Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
-        </span>
-        <span className="input-box">
+        </Paper>
+        <Paper className="input-box">
           Aircraft Recieved Fuel{" "}
           <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
-        </span>
-        <span className="input-box">
+        </Paper>
+        <Paper className="input-box">
           Difference Between Fuel Put In and Recieved{" "}
           <strong>{diffBetweenFuels()}Kg</strong> <br />
-        </span>
+        </Paper>
         {calculateDiff()}
-      </div>
-      <div className="button-cont">
-        {storedAircraftButtonHandler()}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={props.saveDetailsHandler}
-        >
-          Save Details
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={props.onClickHandler}
-        >
-          Back
-        </Button>
+        <div className="button-cont">
+          <div className="button-wrapper">
+            {storedAircraftButtonHandler()}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={props.saveDetailsHandler}
+            >
+              Save Details
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={props.onClickHandler}
+            >
+              Back
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
