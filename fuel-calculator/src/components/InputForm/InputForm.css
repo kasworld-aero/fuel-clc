@@ -255,7 +255,5 @@ textarea:focus {
 }
 
 #tailNumber {
-  position: relative;
-  right: 7px;
-  
+  width: 45%;  
 }

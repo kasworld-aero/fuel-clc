@@ -2,7 +2,6 @@ import React from "react";
 import InputForm from "../InputForm/InputForm";
 import Discrepancy from "../Discrepancy/Discrepancy";
 import StoredAircraftCont from "../StoredAircraft/StoredAircraft";
-import "./Cockpit.css";
 import Button from "@material-ui/core/Button";
 
 const cockpit = props => {
@@ -17,7 +16,7 @@ const cockpit = props => {
   const storedAircraftButtonHandler = () => {
     if (props.storedAircraft === "") {
       return (
-        <Button variant="contained" disabled>
+        <Button className="buttons" variant="contained" disabled>
           Stored
         </Button>
       );

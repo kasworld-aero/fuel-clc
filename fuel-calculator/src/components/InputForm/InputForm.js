@@ -42,7 +42,7 @@ const inputForm = props => {
 
   return (
     <div className="input-cont">
-      <div className='content-wrapper'>
+      <div className="content-wrapper">
         <h1>Enter Details</h1>
         <Paper className="input-box">
           <span className="input-box-item">
@@ -144,6 +144,7 @@ const inputForm = props => {
         <div className="button-wrapper">
           {storedAircraftButtonHandler()}
           <Button
+            className="buttons"
             variant="contained"
             color="primary"
             onClick={preventNaNHandler}

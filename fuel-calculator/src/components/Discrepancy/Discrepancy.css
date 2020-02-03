@@ -3,24 +3,43 @@
     flex-direction: column;
 } */
 
-.disc-calc {
-    border: 1px solid grey;
-    padding: 10px;
-    margin: 10px;
+#disc-calc {
+  justify-content: center;
+  align-content: center;
+  right: 15px;
+  padding: 5px;
+  margin: 20px auto;
+  height: 10vh;
+  width: 90%;
+  border: 1px solid grey;
 }
 
-.acc {
-    border: 1px solid grey;
-    padding: 10px;
-    margin: 10px;
-    background-color: lightgreen;
+#acc {
+  justify-content: center;
+  align-content: center;
+  right: 15px;
+  padding: 5px;
+  margin: 20px auto;
+  height: 10vh;
+  width: 90%;
+  border: 1px solid grey;
+  background-color: lightgreen;
 }
 
-.not-acc {
-    
-    border: 1px solid grey;
-    padding: 10px;
-    margin: 10px;
-    background-color: red;
-    
+#not-acc {
+  justify-content: center;
+  align-content: center;
+  right: 15px;
+  padding: 5px;
+  margin: 20px auto;
+  height: 10vh;
+  width: 90%;
+  border: 1px solid grey;
+  background-color: red;
+}
+
+@media screen and (min-width: 500px) {
+  #disc-calc, #acc, #not-acc {
+    width: 410px;
+  }
 }

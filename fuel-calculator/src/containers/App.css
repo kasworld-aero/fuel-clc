@@ -35,12 +35,12 @@ footer {
 }
 
 .input-box {
-  justify-content: center;
-  align-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
   right: 15px;
   padding: 5px;
   margin: 20px auto;
-  background-color: #4fc4b6;
   height: 10vh;
   width: 90%;
 }
@@ -54,15 +54,19 @@ footer {
     font-size: 2.8em;
   }
 
-  .input-box {
+  .input-box  {
     width: 410px;
   }
 
-  /* .button-wrapper {
-    width: 500px;
+  .button-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     justify-content: center;
-    margin: 0 25%;
-  } */
+  }
+
+  .buttons {
+    margin: 20px;
+  }
+
+  
 }

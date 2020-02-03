@@ -33,21 +33,21 @@ const discrepancy = props => {
     const calc = 100 * (c / (d / 2));
     props.setDiscrepancy(roundedNum(calc));
     if (remFuel === "" || finFuel === "" || delivFuel === "") {
-      return <Paper className="disc-calc">Discrepancy is calculating...</Paper>;
+      return <Paper id="disc-calc">Discrepancy is calculating...</Paper>;
     } else if (calc >= 4 || calc <= -4) {
       return (
-        <Paper className="not-acc">
+        <Paper id="not-acc">
           Discrepancy is <strong>{props.discrepancy}%</strong>
         </Paper>
       );
     } else if (calc < 4 || calc > -4) {
       return (
-        <Paper className="acc">
+        <Paper id="acc">
           Discrepancy is <strong>{props.discrepancy}%</strong>
         </Paper>
       );
     } else {
-      return <div className="disc-calc">Error Calculating Discrepancy</div>;
+      return <div id="disc-calc">Error Calculating Discrepancy</div>;
     }
   };
 
@@ -55,46 +55,45 @@ const discrepancy = props => {
 
   return (
     <div className="input-cont">
-      <div className='content-wrapper'>
+      <div className="content-wrapper">
         <h1>Check Details</h1>
-        <div className="disc">
-          <Paper className="input-box">
-            A/C Tail Number <strong>{props.tailNumber}</strong> <br />
-          </Paper>
-          <Paper className="input-box">
-            Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
-          </Paper>
-          <Paper className="input-box">
-            Aircraft Recieved Fuel{" "}
-            <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
-          </Paper>
-          <Paper className="input-box">
-            Difference Between Fuel Put In and Recieved{" "}
-            <strong>{diffBetweenFuels()}Kg</strong> <br />
-          </Paper>
-          {calculateDiff()}
-
-        </div>
+        <Paper className="input-box">
+          A/C Tail Number <strong>{props.tailNumber}</strong> <br />
+        </Paper>
+        <Paper className="input-box">
+          Fuel Put In <strong>{roundedNum(delivKg)}Kg</strong> <br />
+        </Paper>
+        <Paper className="input-box">
+          Aircraft Recieved Fuel{" "}
+          <strong>{roundedNum(aircraftRecievedFuel)}Kg</strong> <br />
+        </Paper>
+        <Paper className="input-box">
+          Difference Between Fuel Put In and Recieved{" "}
+          <strong>{diffBetweenFuels()}Kg</strong> <br />
+        </Paper>
+        {calculateDiff()}
       </div>
-        <footer>
-          <div className="button-wrapper">
-            {storedAircraftButtonHandler()}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={props.saveDetailsHandler}
-            >
-              Save Details
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={props.onClickHandler}
-            >
-              Back
-            </Button>
-          </div>
-        </footer>
+      <footer>
+        <div className="button-wrapper">
+          {storedAircraftButtonHandler()}
+          <Button
+            className="buttons"
+            variant="contained"
+            color="primary"
+            onClick={props.saveDetailsHandler}
+          >
+            Save Details
+          </Button>
+          <Button
+            className="buttons"
+            variant="contained"
+            color="primary"
+            onClick={props.onClickHandler}
+          >
+            Back
+          </Button>
+        </div>
+      </footer>
     </div>
   );
 };
