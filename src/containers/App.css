@@ -1,0 +1,72 @@
+body {
+  background-color: lightskyblue;
+}
+
+.App {
+  text-align: center;
+  font-size: 4.5vw;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 10vw;
+  color: #fffffe;
+}
+
+.input-cont {
+  position: relative;
+  min-height: 90vh;
+}
+
+.content-wrapper {
+    padding-bottom: 2.5em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5em;
+}
+
+.input-box {
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  right: 15px;
+  padding: 5px;
+  margin: 20px auto;
+  height: 10vh;
+  width: 90%;
+}
+
+@media screen and (min-width: 500px) {
+  .App {
+    font-size: 1.33em;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
+
+  .input-box  {
+    width: 410px;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: center;
+  }
+
+  .buttons {
+    margin: 20px;
+  }
+
+  
+}
