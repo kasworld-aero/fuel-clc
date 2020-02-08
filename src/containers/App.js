@@ -50,6 +50,8 @@ function App() {
     setSubmitted(false);
   };
 
+  //? Refactor so storedAircraft saves as an object
+
   const saveDetailsHandler = () => {
     setStoredAircraft(storedAircraft => [
       ...storedAircraft,
