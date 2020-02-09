@@ -41,12 +41,17 @@ console.log(objectMap(myObject, v => 2 * v))  */
   const storedAircraft1 = storedAircraft.map(d => (
     <div key={d.tailNumber}>
       <p>
-        Tail Number: {d.tailNumber}
-        Fuel Remaining (A/C Gauges): {d.initalFuel}Kg 
-        Specific Gravity: {d.specificGravity}
-        Fuel Put In (Kg): {d.deliveredFuelKg}Kg
-        Total A/C: {d.totalACFuelState}Kg 
-        Discrepancy: {d.discrepancy}%
+        Tail Number: <strong>{d.tailNumber}</strong>
+        <br />
+        Fuel Remaining (A/C Gauges): <strong>{d.initalFuel}Kg</strong> <br />
+        Specific Gravity: <strong>{d.specificGravity}</strong>
+        <br />
+        Fuel Put In (Kg): <strong>{d.deliveredFuelKg}Kg</strong>
+        <br />
+        Total A/C: <strong>≈{d.totalACFuelState}</strong>
+        <br />
+        Kg Discrepancy: <strong>{d.discrepancy}%</strong>
+        <br />
       </p>
     </div>
   ));
