@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
+import classes from "./StoredAircraft.module.css";
 
 const StoredAircraftLi = props => {
   const [classEnabled, setClassEnabled] = useState(false);
@@ -23,13 +24,13 @@ const StoredAircraftLi = props => {
   ));
 
   return (
-      <Paper
-        className="input-box"
-        onClick={() => setClassEnabled(!classEnabled)}
-        style={classEnabled ? { textDecoration: "line-through" } : {}}
-      >
-        {storedInfo}
-      </Paper>
+    <Paper
+      className={classes.StoredInfo}
+      onClick={() => setClassEnabled(!classEnabled)}
+      style={classEnabled ? { textDecoration: "line-through" } : {}}
+    >
+      {storedInfo}
+    </Paper>
   );
 };
 

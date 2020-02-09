@@ -1,0 +1,13 @@
+.StoredInfo {
+    justify-items: start;
+    align-items: center;
+    padding: 5px;
+    margin: 20px ;
+    width: 90%;
+}
+
+@media screen and (min-width: 500px) {
+    .StoredInfo {
+        width: 410px;
+    }
+}

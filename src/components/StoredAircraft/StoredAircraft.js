@@ -1,7 +1,6 @@
 import React from "react";
 import StoredAircraftLi from "./StoredAircraftLi";
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
 
 const StoredAircraftCont = props => {
   const storedAircraft = props.storedAircraft;
