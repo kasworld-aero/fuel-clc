@@ -48,7 +48,7 @@ console.log(objectMap(myObject, v => 2 * v))  */
         <br />
         Fuel Put In (Kg): <strong>{d.deliveredFuelKg}Kg</strong>
         <br />
-        Total A/C: <strong>≈{d.totalACFuelState}</strong>
+        Total A/C: <strong>{d.totalACFuelState}Kg</strong>
         <br />
         Kg Discrepancy: <strong>{d.discrepancy}%</strong>
         <br />
