@@ -5,8 +5,12 @@ import classes from "./StoredAircraft.module.css";
 const StoredAircraftLi = props => {
   const [classEnabled, setClassEnabled] = useState(false);
 
-  const storedInfo = props.storedAircraft.map(d => (
-    <div key={props.tailNumber}>
+  return (
+    <Paper
+      className={classes.StoredInfo}
+      onClick={() => setClassEnabled(!classEnabled)}
+      style={classEnabled ? { textDecoration: "line-through" } : {}}
+    >
       <p>
         Tail Number: <strong>{props.tailNumber}</strong>
         <br />
@@ -20,16 +24,6 @@ const StoredAircraftLi = props => {
         Discrepancy: <strong>{props.disc}%</strong>
         <br />
       </p>
-    </div>
-  ));
-
-  return (
-    <Paper
-      className={classes.StoredInfo}
-      onClick={() => setClassEnabled(!classEnabled)}
-      style={classEnabled ? { textDecoration: "line-through" } : {}}
-    >
-      {storedInfo}
     </Paper>
   );
 };
