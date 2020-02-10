@@ -5,27 +5,6 @@ import Button from "@material-ui/core/Button";
 const StoredAircraftCont = props => {
   const storedAircraft = props.storedAircraft;
 
-  // Object.keys(ingredients)
-  //   .map(igKey => {
-  //     return ingredients[igKey];
-  //   })
-  //   .reduce((sum, el) => {
-  //     return sum + el;
-  //   }, 0);
-  // this.setState({ purchasable: sum > 0 });
-  // }
-
-  /**const objectMap = (obj, fn) =>
-  Object.fromEntries(
-    Object.entries(obj).map(
-      ([k, v], i) => [k, fn(v, k, i)]
-    )
-  )
-  
-const myObject = { a: 1, b: 2, c: 3 }
-
-console.log(objectMap(myObject, v => 2 * v))  */
-
   const confirmResetWindow = () => {
     if (
       window.confirm(
@@ -36,15 +15,24 @@ console.log(objectMap(myObject, v => 2 * v))  */
     }
   };
 
+  const storedInfo = storedAircraft.map(d => (
+    <StoredAircraftLi
+      key={d.tailNumber}
+      tailNumber={d.tailNumber}
+      fuelRem={d.initalFuel}
+      SG={d.specificGravity}
+      fuelIn={d.deliveredFuelKg}
+      totalAC={d.totalACFuelState}
+      disc={d.discrepancy}
+    />
+  ));
+
   return (
     <div>
       <div className="input-cont">
         <div className="content-wrapper">
           <h1>Stored Aircraft Details</h1>
-          <StoredAircraftLi
-            key={storedAircraft.tailNumber}
-            storedAircraft={storedAircraft}
-          />
+          {storedInfo}
         </div>
         <footer>
           <div className="button-wrapper">

@@ -6,18 +6,18 @@ const StoredAircraftLi = props => {
   const [classEnabled, setClassEnabled] = useState(false);
 
   const storedInfo = props.storedAircraft.map(d => (
-    <div key={d.tailNumber}>
+    <div key={props.tailNumber}>
       <p>
-        Tail Number: <strong>{d.tailNumber}</strong>
+        Tail Number: <strong>{props.tailNumber}</strong>
         <br />
-        Fuel Remaining (A/C Gauges): <strong>{d.initalFuel}Kg</strong> <br />
-        Specific Gravity: <strong>{d.specificGravity}</strong>
+        Fuel Remaining (A/C Gauges): <strong>{props.fuelRem}Kg</strong> <br />
+        Specific Gravity: <strong>{props.SG}</strong>
         <br />
-        Fuel Put In (Kg): <strong>{d.deliveredFuelKg}Kg</strong>
+        Fuel Put In (Kg): <strong>{props.fuelIn}Kg</strong>
         <br />
-        Total A/C: <strong>{d.totalACFuelState}Kg</strong>
+        Total A/C: <strong>{props.totalAC}Kg</strong>
         <br />
-        Kg Discrepancy: <strong>{d.discrepancy}%</strong>
+        Discrepancy: <strong>{props.disc}%</strong>
         <br />
       </p>
     </div>
