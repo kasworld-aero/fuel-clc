@@ -1,8 +1,8 @@
 .StoredInfo {
-    justify-items: start;
+    justify-content: center;
     align-items: center;
     padding: 5px;
-    margin: 20px ;
+    margin: 20px auto;
     width: 90%;
 }
 
