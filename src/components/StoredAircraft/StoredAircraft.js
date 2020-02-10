@@ -15,18 +15,24 @@ const StoredAircraftCont = props => {
     }
   };
 
+  const storedInfo = storedAircraft.map(d => (
+    <StoredAircraftLi
+      key={d.tailNumber}
+      tailNumber={d.tailNumber}
+      fuelRem={d.initalFuel}
+      SG={d.specificGravity}
+      fuelIn={d.deliveredFuelKg}
+      totalAC={d.totalACFuelState}
+      disc={d.discrepancy}
+    />
+  ));
+
   return (
     <div>
       <div className="input-cont">
         <div className="content-wrapper">
           <h1>Stored Aircraft Details</h1>
-          {storedAircraft.map((storedAircraft, index) => (
-            <StoredAircraftLi
-              key={index}
-              className="input-box"
-              storedAircraft={storedAircraft}
-            />
-          ))}
+          {storedInfo}
         </div>
         <footer>
           <div className="button-wrapper">

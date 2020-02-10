@@ -53,14 +53,14 @@ function App() {
   const saveDetailsHandler = () => {
     setStoredAircraft(storedAircraft => [
       ...storedAircraft,
-      [
-        "Tail Number: " + tailNumber + ". ",
-        "Fuel Remaining: " + remainingFuel + "Kg. ",
-        "Specific Gravity: " + specificGravity + ". ",
-        "Fuel Put In: " + deliveredFuelKg + "Kg. ",
-        "Total A/C: " + finalFuelState + "Kg. ",
-        "Discrepancy: " + discrepancy + "%."
-      ]
+      {
+        tailNumber: tailNumber,
+        initalFuel: remainingFuel,
+        specificGravity: specificGravity,
+        deliveredFuelKg: deliveredFuelKg,
+        totalACFuelState: finalFuelState,
+        discrepancy: discrepancy
+      }
     ]);
     setTailNumber("");
     setRemainingFuel("");
